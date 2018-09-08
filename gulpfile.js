@@ -12,8 +12,8 @@ var changed = require('gulp-changed');
 
 // SCSS/CSS - Input and output folders for CSS
 
-var SCSS_SRC = './src/Assets/scss/**/*.scss'; //input
-var SCSS_DEST = './src/Assets/css'; //output
+var SCSS_SRC = './public/scss/**/*.scss'; //input
+var SCSS_DEST = './public/css'; //output
 
 //Compile SCSS
 gulp.task('compile_scss', function() {
