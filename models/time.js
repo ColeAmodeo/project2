@@ -1,35 +1,30 @@
 module.exports = function(sequelize, DataTypes) {
   var Time = sequelize.define("Time", {
-    id: {
+    //possibly redundant
+    time_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [1]
-      }
     },
+    //also possibly redundant as there is an auto-created ("dateCreated") timestamp
     time_started: {
       type: DataTypes.DATE,
-      allowNull: false,
-      validate:{ 
-      len: [1]
-      }
+      allowNull: false
     },
+    //same as above object
     time_ended: {
       type: DataTypes.DATE,
       allowNull: false
     },
+    //task - type of work the user is doing - could have different rates. 
   task: {
     type: DataTypes.STRING, 
     allowNull: false, 
-    validate: {
-      len: [1]
-    }
   },
  
 });
 
   Time.associate = function(models) {
-    //Time belongs to Staff, cant have a time entry without a staff member
+
     Time.belongsTo(models.Staff, {
       onDelete: "CASCADE",
       foreignKey: {
@@ -40,4 +35,3 @@ module.exports = function(sequelize, DataTypes) {
 
   return Time;
 };
-//needs to be renamed as Time.js
