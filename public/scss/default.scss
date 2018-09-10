@@ -1,0 +1,51 @@
+/* //////////////////////
+/// Landing Page CSS /// 
+///////////////////////*/
+
+.container {
+        text-align: center;
+        position: fixed;
+        top: 20%;
+        left: 16.5%; 
+        width: 100%;  
+    
+
+}
+
+.jumbotron {
+    font-family: 'Playfair Display SC', serif;
+    background-color:hsla(210,95%,25%,0.8);
+    color: white; 
+   
+    .my-4 {
+        background-color: white;
+
+    }
+    .btn-outline-success {
+        font-size: 40px; 
+        background-color:rgb(155, 102, 4);
+        color: white; 
+        border: 1px solid white;
+    }
+
+    .btn-outline-success:hover {
+        background-color:rgb(197, 129, 12);
+        color: white; 
+        border: 1px solid white;
+        
+    }
+
+}
+
+.footer {
+    width: 100%;
+    background-color:hsla(210,95%,25%,0.8);
+    color: white; 
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    position: absolute;
+    margin-top: 47.5%; 
+    
+}
+
+
