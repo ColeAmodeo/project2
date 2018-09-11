@@ -2,19 +2,26 @@
 /// Landing Page CSS /// 
 ///////////////////////*/
 
+.wrapper {
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: cover; 
+    height: 800px;
+    width: 1800px;
+}
+
 .container {
         text-align: center;
         position: fixed;
         top: 20%;
         left: 16.5%; 
         width: 100%;  
-    
-
 }
 
 .jumbotron {
     font-family: 'Playfair Display SC', serif;
-    background-color:hsla(210,95%,25%,0.8);
+    background-color:hsla(210,95%,25%,1);
     color: white; 
    
     .my-4 {
@@ -39,13 +46,56 @@
 
 .footer {
     width: 100%;
-    background-color:hsla(210,95%,25%,0.8);
+    background-color:hsla(210,95%,25%,1);
     color: white; 
     text-align: center;
     font-family: 'Playfair Display SC', serif;
     position: absolute;
-    margin-top: 47.5%; 
+    margin-top: 48%; 
+    height: 10%; 
+    font-size: 12px; 
+
+    p {
+        margin-top: 1%;
+        
+    }
     
 }
 
+/* //////////////////////
+/// Home Page CSS /// 
+///////////////////////*/
 
+.nav-container {
+    background-color:hsla(210,95%,25%,1);
+    color: white; 
+    width: 20%;
+    height: 100%;
+
+    h1 {
+        font-family: 'Playfair Display SC', serif;
+        text-align: center;
+        padding-top: 5%;
+    }
+
+    hr {
+        background-color: white; 
+        width: 80%; 
+    }
+
+    .btn-outline-success {
+        font-size: 15px; 
+        color: white; 
+        border: none; 
+        width: 100%;
+    }
+
+    .btn-outline-success:hover {
+        background-color:rgb(5, 110, 216);
+        color: white;       
+    }
+    .btn-outline-success:active {
+        background-color:rgb(5, 110, 216);
+        color: white; 
+}
+}
