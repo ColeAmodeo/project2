@@ -1,37 +1,43 @@
 module.exports = function(sequelize, DataTypes) {
-  var Time = sequelize.define("Time", {
+  var Session = sequelize.define("Session", {
     //possibly redundant
-    time_id: {
+    time_worked: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    project_id: { 
+      type: DataTypes.INTEGER
+    },
     //also possibly redundant as there is an auto-created ("dateCreated") timestamp
-    time_started: {
+    date: {
       type: DataTypes.DATE,
       allowNull: false
     },
     //same as above object
-    time_ended: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
+    
     //task - type of work the user is doing - could have different rates. 
-  task: {
+  task_completion_desc: {
     type: DataTypes.STRING, 
-    allowNull: false, 
-  },
+    allowNull: false
+  }
  
 });
 
-  Time.associate = function(models) {
+  Session.associate = function(models) {
 
-    Time.belongsTo(models.Staff, {
+    Session.belongsTo(models.Staff, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       },
     });
+    Session.belongsTo(models.Project, {
+      onDelete: "CASCADE",
+      foreignKey: { 
+        allowNull: false
+      },
+    });
   };
 
-  return Time;
+  return Session;
 };
