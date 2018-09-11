@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
     project_id: {
       type: DataTypes.INTEGER
     },
-    // also possibly redundant as there is an auto-created ("dateCreated") timestamp
+    //  also possibly redundant as there is an auto-created ("dateCreated") timestamp
     date: {
       type: DataTypes.DATE,
       allowNull: false
