@@ -1,41 +1,38 @@
 module.exports = function(sequelize, DataTypes) {
 
 
-    var Staff = sequelize.define("Staff", {
+  var Staff = sequelize.define("Staff", {
 
     staff_id: {
-        type: DataTypes.INTEGER
+      type: DataTypes.INTEGER
     },
 
     staff_name: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING
     },
 
     staff_role: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING
     },
 
     staff_rate: {
-        type: DataTypes.DOUBLE
+      type: DataTypes.DOUBLE
     },
 
-    total_time: { 
-        type: DataTypes.INTEGER
-    }, 
+    total_time: {
+      type: DataTypes.INTEGER
+    },
 
     password: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING
     }
+  });
+
+  Staff.associate = function(models) {
+
+    Staff.hasMany(models.Session, {
+      onDelete: "CASCADE"
     });
-  
-    Staff.associate = function(models) {
-
-        Staff.hasMany(models.Session, {
-            onDelete: "CASCADE"
-      });
-        
-    };
-    
-    return Staff;
-
-}; 
+  };
+  return Staff;
+};
