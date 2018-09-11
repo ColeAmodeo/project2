@@ -21,6 +21,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.1",
+    "moment": "^2.22.2",
     "mysql2": "^1.5.3",
     "npm": "^6.4.1",
     "sequelize": "^4.38.0"
