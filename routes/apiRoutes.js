@@ -1,8 +1,48 @@
 var db = require("../models");
 
 module.exports = function(app) {
+
+  //get total_time on a all projects. 
+  app.get("/api/sessions", function(req,res){ 
+    console.log(req);
+
+    db.Sessions.sum("time_worked").then(function(dbSession){
+      res.json(dbSession);
+    });
+  })
  //ADMIN
   //admin GET calls
+
+  //get total_time on specific projects 
+app.get("/api/sessions/:id", function(req, res) {
+  var proj_id = req.params.id;
+
+  if (proj_id) { 
+    db.Sessions.sum("time_worked", {
+      where: {
+        ProjectId = proj_id 
+      }
+    }).then(function(dbSession){
+      res.json(dbSession); 
+  });
+
+  }
+})
+
+//get total_time on specific projects for a specific staff member
+app.get("/api/sessions/:staffid/:projectid", function(req, res) {
+  var proj_id = req.params.projectid;
+  var staff_id = req.params.staffid;
+  
+  db.Sessions.sum("time_worked", {
+    where: {
+      ProjectId: proj_id, 
+      StaffId: staff_id
+    }
+  })
+}).then(function(dbSession){
+  res.json(dbSession)
+})
 
   // Get all examples
 
