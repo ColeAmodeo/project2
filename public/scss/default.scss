@@ -49,6 +49,19 @@
     height: 20%;
     background-color:hsla(210,95%,25%,1);
     color: white;
+    
+    button {
+        background-color:rgb(155, 102, 4);
+        color: white; 
+        border: 1px solid white;
+        
+    }
+
+    button:hover {
+        background-color:rgb(197, 129, 12);
+        color: white; 
+        border: 1px solid white;
+    }
 
     .form-group {
         width: 20%;
