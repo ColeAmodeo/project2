@@ -15,17 +15,31 @@
 
 </head>
 <body>
-    <div class="jumbotron">
-            <h1>Staff Page <i class="far fa-clock"></i></h1>
-        <hr />
+
+        <div id="staff-wrapper" class="wrapper">
+    <div id="staff-jumbotron" class="jumbotron">
+            <h1>Staff <i class="far fa-clock"></i></h1>
+
+            <div class="time-container">gogo
+            </div>
+
+            
+
+            <p>Manage your Staff Session</p>
+            <button id = "start-btn" onclick="beginSession()"> Start </button>
+            <button id = "end-btn" onclick="endSession()"> End </button>
+     
 
     </div>
-    <div class = "jumbotron">
-        <button id = "start-btn" onclick="beginSession()"> Start Session </button>
-        <button id = "end-btn" onclick="endSession()"> End Session </button>
-
     </div>
 
+
+    <footer id="staff-footer" class="footer">
+            <p>Copyright © Alexander Jivov - Cole Amodeo - Marshall Johnston
+                <br/>
+                University of Toronto Coding Boot Camp 2018</p>
+        </footer>
+    </div>
 
         <script src="./public/js/main.js"></script>
 </body>
