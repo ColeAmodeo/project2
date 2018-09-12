@@ -19,12 +19,25 @@
         <div id="staff-wrapper" class="wrapper">
     <div id="staff-jumbotron" class="jumbotron">
             <h1>Staff <i class="far fa-clock"></i></h1>
+        
+            <div class="time-container">
 
-            <div class="time-container">gogo
+                    <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              Select Your Task
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                              <li><a href="#"></a></li>
+                              <li><a href="#"></a></li>
+                              <li><a href="#"></a></li>
+                            </ul>
+                          </div>
+
+                    <button id = "time-start-btn" onclick="beginTime()"> Start Time</button>
+                    <button id = "time-end-btn" onclick="endTime()"> Stop Time </button>
             </div>
-
-            
-
+            <br />
             <p>Manage your Staff Session</p>
             <button id = "start-btn" onclick="beginSession()"> Start </button>
             <button id = "end-btn" onclick="endSession()"> End </button>
