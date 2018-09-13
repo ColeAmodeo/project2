@@ -6,27 +6,27 @@ module.exports = function(app) {
   app.get("/api/sessions", function(req,res){ 
     console.log(req);
 
-    db.Sessions.sum("time_worked").then(function(dbSession){
-      res.json(dbSession);
+    db.Session.sum("time_worked").then(sum => {
+      console.log("\n the sum is " + sum);
     });
   })
  //ADMIN
   //admin GET calls
 
   //get total_time on specific projects 
-app.get("/api/sessions/:id", function(req, res) {
-  var proj_id = req.params.id;
+app.get("/api/sessions/:projectid", function(req, res) {
+  var proj_id = req.params.projectid;
 
   if (proj_id) { 
-    db.Sessions.sum("time_worked", {
+    db.Session.sum("time_worked", {
       where: {
-        ProjectId = proj_id 
+        ProjectId: proj_id 
       }
     }).then(function(dbSession){
       res.json(dbSession); 
   });
 
-  }
+  } 
 })
 
 //get total_time on specific projects for a specific staff member
@@ -34,15 +34,17 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
   var proj_id = req.params.projectid;
   var staff_id = req.params.staffid;
   
-  db.Sessions.sum("time_worked", {
+  db.Session.sum("time_worked", {
     where: {
       ProjectId: proj_id, 
       StaffId: staff_id
     }
+  }).then(function(dbSession){
+    res.json(dbSession)
   })
-}).then(function(dbSession){
-  res.json(dbSession)
-})
+});
+
+}; 
 
   // Get all examples
 
@@ -67,23 +69,23 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
 
 
 
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+//   app.get("/api/examples", function(req, res) {
+//     db.Example.findAll({}).then(function(dbExamples) {
+//       res.json(dbExamples);
+//     });
+//   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+//   // Create a new example
+//   app.post("/api/examples", function(req, res) {
+//     db.Example.create(req.body).then(function(dbExample) {
+//       res.json(dbExample);
+//     });
+//   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-};
+//   // Delete an example by id
+//   app.delete("/api/examples/:id", function(req, res) {
+//     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+//       res.json(dbExample);
+//     });
+//   });
+// };
