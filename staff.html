@@ -8,6 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="public/css/default.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="shortcut icon" href="./public/assets/favicon.ico" type="image/x-icon">
@@ -17,7 +18,7 @@
 <body>
 
         <div id="staff-wrapper" class="wrapper">
-    <div id="staff-jumbotron" class="jumbotron">
+    <div data-aos="zoom-in" data-aos-duration="3000" id="staff-jumbotron" class="jumbotron">
             <h1>Staff <i class="far fa-clock"></i></h1>
         
             <div class="time-container">
@@ -53,6 +54,11 @@
                 University of Toronto Coding Boot Camp 2018</p>
         </footer>
     </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+            AOS.init();
+          </script>
 
         <script src="./public/js/main.js"></script>
 </body>
