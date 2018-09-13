@@ -42,7 +42,7 @@ db.Session.findAll({
   }
 
 
-})
+  })
 })
 
 //get all the sessions on a given project for a given staff member
@@ -57,7 +57,9 @@ app.get("/api/sessions/:staffid/:projectid", function(req,res){
     }
   }).then(function(timeByStaffForProj){
   res.json(timeByStaffForProj)
-}); 
+});
+
+})
 
 //get total_time on specific projects for a specific staff member
 app.get("/api/sessions/:staffid/:projectid", function(req, res) {
@@ -74,8 +76,25 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
   })
 });
 
-app.post("api/posts", function(req,res) { 
-  db.Staff
+app.post("/api/posts", function(req,res) { 
+  var staffid = 3; 
+  var staffName = "Remy Samanski"; 
+  var staffRole = "Sales Manager";
+  var staffRate = 65.00;
+  var pass = "newpassword";
+
+  db.Staff.findOrCreate({
+    where: {
+      staff_id: staffid,
+      staff_name: staffName,
+      staff_role: staffRole,
+      staff_rate: staffRate,
+      password: pass
+    }
+  }).then(function(result){ 
+    console.log("complete"); 
+    res.json(result); 
+  })
 })
 
 }; 
