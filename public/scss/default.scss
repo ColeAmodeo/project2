@@ -107,8 +107,22 @@ input::placeholder {
 }
 
 /* //////////////////////
-/// Home Page CSS /// 
+/// Admin Page CSS /// 
 ///////////////////////*/
+
+#admin-wrapper {
+    height: 800px;
+    width: 1665px;
+
+}
+
+.admin-welcome {
+    display: inline; 
+    position: fixed;
+    left: 40%;
+    color: white; 
+}
+
 
 .nav-container {
     background-color:hsla(210,95%,25%,1);
@@ -144,6 +158,10 @@ input::placeholder {
 }
 }
 
+#admin-footer {
+    margin-top: -1%;
+    width: 100%; 
+}
 
 /* //////////////////////
 /// Staff Page CSS /// 
