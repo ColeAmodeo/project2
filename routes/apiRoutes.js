@@ -12,20 +12,20 @@ module.exports = function(app) {
   })
 
   //get total_time on specific projects 
-app.get("/api/sessions/:projectid", function(req, res) {
-  var proj_id = req.params.projectid;
+// app.get("/api/sessions/:projectid", function(req, res) {
+//   var proj_id = req.params.projectid;
 
-  if (proj_id) { 
-    db.Session.sum("time_worked", {
-      where: {
-        ProjectId: proj_id 
-      }
-    }).then(function(timeByProjectId){
-      res.json("ProjectID: " + timeByProjectId); 
-  });
+//   if (proj_id) { 
+//     db.Session.sum("time_worked", {
+//       where: {
+//         ProjectId: proj_id 
+//       }
+//     }).then(function(timeByProjectId){
+//       res.json("ProjectID: " + timeByProjectId); 
+//   });
 
-  } 
-})
+//   } 
+
 //show all sessions on a given project: 
 
 app.get("/api/sessions/:projectid", function(req,res) {
@@ -35,12 +35,29 @@ db.Session.findAll({
     {
       ProjectId: proj_id
     }
-}).then(function(allTimeProject){ 
-  console.log("All times projects", allTimeProjects);
+}).then(function(res){ 
+  var timeProject = []; 
+  for (var i = 0; i < res.length; i++) {
+  console.log(res[i].dataVAlues)
+  }
+
+
 })
 })
 
+//get all the sessions on a given project for a given staff member
+app.get("/api/sessions/:staffid/:projectid", function(req,res){
+  var proj_id = req.params.projectid;
+  var staff_id = req.params.staffid;
 
+  db.Session.findAll("time_worked", {
+    where: {
+      ProjectId: proj_id, 
+      StaffId: staff_id
+    }
+  }).then(function(timeByStaffForProj){
+  res.json(timeByStaffForProj)
+}); 
 
 //get total_time on specific projects for a specific staff member
 app.get("/api/sessions/:staffid/:projectid", function(req, res) {
