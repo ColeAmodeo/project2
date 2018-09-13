@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
+    <title>Staff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="public/css/default.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./public/assets/favicon.ico" type="image/x-icon">
 
 
 </head>
@@ -19,12 +19,25 @@
         <div id="staff-wrapper" class="wrapper">
     <div id="staff-jumbotron" class="jumbotron">
             <h1>Staff <i class="far fa-clock"></i></h1>
+        
+            <div class="time-container">
 
-            <div class="time-container">gogo
+                    <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              Select Your Task
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                              <li><a href="#"></a></li>
+                              <li><a href="#"></a></li>
+                              <li><a href="#"></a></li>
+                            </ul>
+                          </div>
+
+                    <button id = "time-start-btn" onclick="beginTime()"> Start Time</button>
+                    <button id = "time-end-btn" onclick="endTime()"> Stop Time </button>
             </div>
-
-            
-
+            <br />
             <p>Manage your Staff Session</p>
             <button id = "start-btn" onclick="beginSession()"> Start </button>
             <button id = "end-btn" onclick="endSession()"> End </button>
