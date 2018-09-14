@@ -11,20 +11,22 @@ module.exports = function(app) {
     });
   })
 
-  //get total_time on specific projects 
-// app.get("/api/sessions/:projectid", function(req, res) {
-//   var proj_id = req.params.projectid;
+  
 
-//   if (proj_id) { 
-//     db.Session.sum("time_worked", {
-//       where: {
-//         ProjectId: proj_id 
-//       }
-//     }).then(function(timeByProjectId){
-//       res.json("ProjectID: " + timeByProjectId); 
-//   });
+  // get total_time on specific projects  (duplicate api get)
+app.get("/api/sessions/:projectid", function(req, res) {
+  var proj_id = req.params.projectid;
 
-//   } 
+  if (proj_id) { 
+    db.Session.sum("time_worked", {
+      where: {
+        ProjectId: proj_id 
+      }
+    }).then(function(timeByProjectId){
+      res.json("ProjectID: " + timeByProjectId); 
+  });
+
+  } 
 
 //show all sessions on a given project: 
 
@@ -57,6 +59,8 @@ app.get("/api/sessions/:staffid/:projectid", function(req,res){
     }
   }).then(function(timeByStaffForProj){
   res.json(timeByStaffForProj)
+
+  //can also get staff names working on a specific project. 
 });
 
 })
@@ -75,33 +79,34 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
     res.json(timeForStaffProj)
   })
 });
+//create staff members 
+app.post("/api/staffmembers", function(req,res) {
 
-app.post("/api/posts", function(req,res) { 
-  var staffid = 3; 
-  var staffName = "Remy Samanski"; 
-  var staffRole = "Sales Manager";
-  var staffRate = 65.00;
-  var pass = "newpassword";
+  db.Staff.create*(req.body).then(function(dbStaff){
+    res.json(dbStaff); 
+  });
+}); 
 
-  db.Staff.findOrCreate({
-    where: {
-      staff_id: staffid,
-      staff_name: staffName,
-      staff_role: staffRole,
-      staff_rate: staffRate,
-      password: pass
-    }
-  }).then(function(result){ 
-    console.log("complete"); 
-    res.json(result); 
-  })
+//update password
+app.put("/api/passwordchange/:id", function (req,res) {
+    var newPass = req.body.password
+    db.Staff.update(
+      {
+        password: newPass
+      },
+      {
+        where:{ id: req.params.id }
+      })
+
+}).then(function(updatedPassword){
+  console.log("password has been updated to " + updatedPassword)
 })
 
 }; 
 
   // Get all examples
 
-  //get all tracked time
+
 
   //get tracked time by service
 
