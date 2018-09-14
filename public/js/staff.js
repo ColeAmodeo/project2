@@ -21,10 +21,10 @@ function staffSubmission(event) {
         alert("You must add complete details in order to create a staff member");
     } else {
         newStaff({
-            staffName, 
-            staffRole,
-            staffRate,
-            password
+            staff_name: staffName, 
+            staff_role: staffRole, 
+            staff_rate: staffRate,
+            password: password
         });
     }
 
