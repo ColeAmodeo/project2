@@ -3,31 +3,30 @@ var db = require("../models");
 module.exports = function(app) {
 
   //get total_time on all projects. 
-  app.get("/api/sessions", function(req,res){ 
-    console.log(req);
+app.get("/api/sessions", function(req,res){ 
+  console.log(req);
 
-    db.Session.sum("time_worked").then(totalSum => {
-      console.log("\n the sum is " + totalSum);
-    });
-  })
+  db.Session.sum("time_worked").then(totalSum => {
+    console.log("\n the sum is " + totalSum);
+  });
+});
 
-  
 
-  // get total_time on specific projects  (duplicate api get)
-app.get("/api/sessions/:projectid", function(req, res) {
+// get total_time on specific projects  (duplicate api get)
+app.get("/api/sessions/:projectid/:otherid", function(req, res) {
   var proj_id = req.params.projectid;
 
   if (proj_id) { 
     db.Session.sum("time_worked", {
-      where: {
+      where: 
+      {
         ProjectId: proj_id 
       }
     }).then(function(timeByProjectId){
       res.json("ProjectID: " + timeByProjectId); 
-  });
-
-  } 
-
+    });
+  };
+}); 
 //show all sessions on a given project: 
 
 app.get("/api/sessions/:projectid", function(req,res) {
@@ -38,11 +37,17 @@ db.Session.findAll({
       ProjectId: proj_id
     }
 }).then(function(res){ 
+  //discuss how we want to be able to build all of these out. 
   var timeProject = []; 
+  var totalTime = 0; 
   for (var i = 0; i < res.length; i++) {
-  console.log(res[i].dataVAlues)
-  }
 
+  timeProject += res[i].dataValues
+  totalTime += res[i].time_worked;
+  console.log(res[i].dataValues)
+
+  }
+console.log("total time worked on project: " + totalTime); 
 
   })
 })
@@ -60,10 +65,11 @@ app.get("/api/sessions/:staffid/:projectid", function(req,res){
   }).then(function(timeByStaffForProj){
   res.json(timeByStaffForProj)
 
-  //can also get staff names working on a specific project. 
+//can also get staff names working on a specific project. 
 });
 
-})
+});
+
 
 //get total_time on specific projects for a specific staff member
 app.get("/api/sessions/:staffid/:projectid", function(req, res) {
@@ -77,18 +83,26 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
     }
   }).then(function(timeForStaffProj){
     res.json(timeForStaffProj)
+
   })
 });
-//create staff members 
-app.post("/api/staffmembers", function(req,res) {
+//create staff members using info from front end
+app.post("/api/staff", function(req,res) {
 
-  db.Staff.create*(req.body).then(function(dbStaff){
+  db.Staff.create(req.body).then(function(dbStaff){
     res.json(dbStaff); 
   });
 }); 
+//create new project using info from front end 
+app.post("/api/project", function(req,res){
+
+  db.Project.create(req.body).then(function(dbProject){
+    res.json(dbProject); 
+  })
+})
 
 //update password
-app.put("/api/passwordchange/:id", function (req,res) {
+app.put("/api/staff/passwordchange/:id", function (req,res) {
     var newPass = req.body.password
     db.Staff.update(
       {
@@ -98,19 +112,12 @@ app.put("/api/passwordchange/:id", function (req,res) {
         where:{ id: req.params.id }
       })
 
-}).then(function(updatedPassword){
-  console.log("password has been updated to " + updatedPassword)
 })
 
+
+
+
 }; 
-
-  // Get all examples
-
-
-
-  //get tracked time by service
-
-  //get tracked time by staff member
 
 
 //STAFF
