@@ -70,7 +70,6 @@ app.get("/api/sessions/:staffid/:projectid", function(req,res){
 
 });
 
-
 //get total_time on specific projects for a specific staff member
 app.get("/api/sessions/:staffid/:projectid", function(req, res) {
   var proj_id = req.params.projectid;
@@ -86,6 +85,7 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
 
   })
 });
+
 //create staff members using info from front end
 app.post("/api/staff", function(req,res) {
 
@@ -93,16 +93,25 @@ app.post("/api/staff", function(req,res) {
     res.json(dbStaff); 
   });
 }); 
+
 //create new project using info from front end 
 app.post("/api/project", function(req,res){
 
   db.Project.create(req.body).then(function(dbProject){
     res.json(dbProject); 
-  })
-})
+  });
+});
+
+//end timer and add as a session. 
+app.post("/api/session/", function(req, res){
+  
+  db.Session.crate(req.body).then(function(dbSession){
+    res.json(dbSession);
+  });
+}); 
 
 //update password
-app.put("/api/staff/passwordchange/:id", function (req,res) {
+app.put("/api/staff/passwordchange/:id", function(req) {
     var newPass = req.body.password
     db.Staff.update(
       {
@@ -113,7 +122,6 @@ app.put("/api/staff/passwordchange/:id", function (req,res) {
       })
 
 })
-
 
 
 
