@@ -12,7 +12,8 @@ var password = "newpassword"
 // $("#password")
 
 //the listener will create an object on click with the information above
-$(document).on("submit", "#staffSubmitBtn", staffSubmission); 
+//will likely need to be a click button
+$(document).on("click", "#staffSubmitBtn", staffSubmission); 
 
 function staffSubmission(event) {
     event.preventDefault(); 
