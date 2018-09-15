@@ -45,6 +45,7 @@ function startSession () {
   disable();
   enablePause();
   enableEnd();
+};
 //End Button
 function endSession () {
   clearInterval(timerId)
