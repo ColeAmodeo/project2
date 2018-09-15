@@ -109,16 +109,25 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
 
 //create staff members using info from front end
 app.post("/api/staff", function(req,res) {
-
+var staffInfo = req.body
   console.log("REQ: ", req);
   console.log("REQ BODY: ", req.body); 
 
-  db.Staff.create(req.body).then(function(dbStaff){
+  db.Staff.create(staffInfo).then(function(dbStaff){
 
     console.log("REQ BODY: " + req.body); 
     res.json(dbStaff); 
   });
 }); 
+
+//adds new projects to database/json
+app.post("/api/projects", function(req,res){
+  var projectInfo = req.body
+
+  db.Project.create(projectInfo).then(function(dbProject){
+    res.json(dbProject); 
+  })
+})
 
 
 
