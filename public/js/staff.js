@@ -16,7 +16,7 @@ var password = "newpassword"
 $(document).on("click", "#staffSubmitBtn", staffSubmission);
 
 function staffSubmission(event) {
-    //event.preventDefault(); 
+    //event.preventDefault();
 
     if(staffName.length === 0 || staffRole.length === 0 || staffRate.length === 0 || password.length === 0) {
         alert("You must add complete details in order to create a staff member");
