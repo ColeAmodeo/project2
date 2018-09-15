@@ -3,7 +3,7 @@ $(document).ready(function(){
     var db = require("../../models")
 
     var username = $("email").replace(/\s+/g, ''); 
-    var password = $("password")
+    var pass = $("password")
 
     $(document).on("click", "password", getPassword);
 
@@ -13,10 +13,10 @@ $(document).ready(function(){
 
             db.Staff.findOne({
                 where: { 
-                    staff_id: req.params.id
+                    staff_name: username
                 }
             }).then(function(user){
-                if (req.body.password === password) {
+                if (user.password === pass) {
                 res.sendFile(path.join(__dirname, "../staff.html"))
                 } else {
                     alert("Please enter a proper username and password"); 
@@ -25,17 +25,4 @@ $(document).ready(function(){
        
         })
     }
-
-    app.get("/api/login/staff/:id", function(req,res) {
- 
-        db.Staff.findOne({
-          where: {
-            staff_id: req.params.id
-          }
-        }).then(function(user){
-          if (req.body.password === )
-        })
-      
-      })
-       
-});
+}); 
