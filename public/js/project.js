@@ -20,8 +20,22 @@ document.ready(function(){
     }
     function createProject(projectInfo) {
         $.post("/api/project", projectInfo)
-        .then(
-            console.log("you added a project succesfully"));
+        .then(getProjects, console.log("you added a project succesfully"));
 
+    }
+    //get projects from the api to produce them for the staff account. 
+    function getProjects() {
+        $.get("/api/project", function(info){
+            var row = []; 
+
+            for (var i; i < info.length; i++) {
+
+                row += info.project_desc; 
+                console.log(info.project_desc)
+
+                //likely want to add these to the dropdown. or need to come up with another solution for this. 
+            }
+            console.log(row); 
+        })
     }
 })
