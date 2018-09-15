@@ -32,6 +32,7 @@ app.get("/api/projects", function(req,res){
 
 
 
+
 // get total_time on specific projects  (duplicate api get)
 app.get("/api/sessions/:projectid/:otherid", function(req, res) {
   var proj_id = req.params.projectid;
@@ -109,8 +110,11 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
 //create staff members using info from front end
 app.post("/api/staff", function(req,res) {
 
-  console.log("REQ BODY: " + req.body); 
+  console.log("REQ: ", req);
+  console.log("REQ BODY: ", req.body); 
+
   db.Staff.create(req.body).then(function(dbStaff){
+
     console.log("REQ BODY: " + req.body); 
     res.json(dbStaff); 
   });
