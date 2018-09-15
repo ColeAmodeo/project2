@@ -9,7 +9,7 @@ document.ready(function(){
     function projectSubmission(event) {
         event.preventDefault(); 
 
-        if(projectDesc === 0 || expectedTime === 0) {
+        if(projectDesc.length === 0 || expectedTime.length === 0) {
             alert("make sure you have entered your Project information correctly")
         } else {
             createProject({
