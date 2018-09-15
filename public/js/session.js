@@ -1,11 +1,15 @@
 $(document).ready(function(){
 
-    var timeWorked = $("#timeWorked"); 
-    var taskDesc = $("#taskCompletedDesc");
-    var StaffId = $("value");
-    var ProjectId = $("projectValue"); 
+    var timeWorked = 5
+    $("#timeWorked"); 
+    var taskDesc = "front end setup"
+    $("#taskCompletedDesc");
+    var StaffId = 1
+    $("value");
+    var ProjectId = 2
+    $("projectValue"); 
 
-    $("#modalConfirmation").on("click", sessionSubmission) {
+    $("#modalConfirmation").on("click", sessionSubmission) 
 
     function sessionSubmission() {
             // dont need right now until we confirm the button. 
@@ -23,20 +27,16 @@ $(document).ready(function(){
                 //staffId will have to be associated with login
             })
         } 
-
-
     }
     
     function newSubmission(submissionInfo) {
         $.ajax({
             type: "POST",
             url: "/api/sessions",
-            data: data,
-            success: success,
-            dataType: dataType
-          });
-          
-    }
+            data: submissionInfo,
+          }).done(console.log("you successfully added a submission"))
+          .fail(console.log("uh oh something went wrong when tryin to post"))
+        };
 
-    };
+    sessionSubmission(); 
 })

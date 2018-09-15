@@ -31,7 +31,7 @@ $(document).ready(function(){
               })
               
         //add getProjects after
-        .then(console.log("you added a project succesfully"));
+        .done(console.log("you added a project succesfully"));
         //add getProjects 
 
     }
@@ -50,5 +50,5 @@ $(document).ready(function(){
             console.log(row); 
         })
     }
-    projectSubmission(); 
+    // projectSubmission(); 
 })
