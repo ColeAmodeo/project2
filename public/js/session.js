@@ -24,6 +24,19 @@ $(document).ready(function(){
             })
         } 
 
+
     }
+    
+    function newSubmission(submissionInfo) {
+        $.ajax({
+            type: "POST",
+            url: "/api/sessions",
+            data: data,
+            success: success,
+            dataType: dataType
+          });
+          
+    }
+
     };
 })
