@@ -49,7 +49,7 @@ function getStaff() {
             staffArr += info.staff_rate + " "; 
             
         }
-        console.log(staffArr);
+        console.log("staff Arr: " + staffArr);
     });
     
 }
