@@ -1,13 +1,16 @@
-document.ready(function(){
+$(document).ready(function(){
 
-    var projectDesc = $("projectDescription")
-    var expectedTime = $("expectTime")
+    var projectDesc = "Facebook UX Build"
+    $("projectDescription")
+    var expectedTime = 2500
+    $("expectTime")
 
 
     $("#project_button").on("click", projectSubmission)
 
-    function projectSubmission(event) {
-        event.preventDefault(); 
+    function projectSubmission() {
+        //no event happening at the moment. 
+        // event.preventDefault(); 
 
         if(projectDesc === 0 || expectedTime === 0) {
             alert("make sure you have entered your Project information correctly")
@@ -19,8 +22,17 @@ document.ready(function(){
         }
     }
     function createProject(projectInfo) {
-        $.post("/api/projects", projectInfo)
-        .then(getProjects, console.log("you added a project succesfully"));
+        console.log("PROJECT INFO: ", projectInfo);
+        // $.post("/api/projects", function() {
+            $.ajax({
+                type: "POST",
+                url: "/api/projects",
+                data: projectInfo
+              })
+              
+        //add getProjects after
+        .then(console.log("you added a project succesfully"));
+        //add getProjects 
 
     }
     //get projects from the api to produce them for the staff account. 
@@ -38,4 +50,5 @@ document.ready(function(){
             console.log(row); 
         })
     }
+    projectSubmission(); 
 })
