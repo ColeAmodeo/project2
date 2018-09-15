@@ -36,10 +36,9 @@ function newStaff(staffInfo) {
     //once there has been a post, we will need to getStaff again which will again pull all staff from via the api
     .then(getStaff, console.log("it made it to this point, which is great"))
 
-
-
 }
 
+//connect this function with charts.js c
 function getStaff() {
     $.get("api/staff", function(info){
         var staffArr = [];
@@ -58,7 +57,7 @@ function getStaff() {
 // need to create a function that creates rows for all the inputs.
 
 
-staffSubmission();
+// staffSubmission();
 console.log("well at least something happened STAFF.js file, and thats good!")
 
 })
