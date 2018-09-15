@@ -110,9 +110,11 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
 //create staff members using info from front end
 app.post("/api/staff", function(req,res) {
 
-  console.log("REQ BODY: " + req.body); 
-  
+  console.log("REQ: ", req);
+  console.log("REQ BODY: ", req.body); 
+
   db.Staff.create(req.body).then(function(dbStaff){
+
     console.log("REQ BODY: " + req.body); 
     res.json(dbStaff); 
   });
