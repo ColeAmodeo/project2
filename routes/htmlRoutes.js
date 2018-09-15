@@ -8,4 +8,7 @@ module.exports = function(app) {
   app.get("/staff", function(req, res) {
     res.sendFile(path.join(__dirname, "../staff.html"))
   })
+  app.get("/admin", function(req, res) {
+    res.sendFile(path.join(__dirname, "../admin.html"))
+  })
 };
