@@ -5,11 +5,31 @@ module.exports = function(app) {
   //get total_time on all projects. 
 app.get("/api/sessions", function(req,res){ 
   console.log(req);
-
+// add all as json elements in api/sessions
+  db.Session.findAll({
+  }).then(function(jsonSession){
+    res.json(jsonSession);
+  });
+  //sum the total time worked in the session.
   db.Session.sum("time_worked").then(totalSum => {
     console.log("\n the sum is " + totalSum);
   });
 });
+
+app.get("/api/staff", function(req,res){
+  db.Staff.findAll({
+  }).then(function(jsonStaff){
+    res.json(jsonStaff);
+  });
+});
+
+app.get("/api/projects", function(req,res){
+  db.Project.findAll({
+  }).then(function(jsonProject){
+    res.json(jsonProject)
+  });
+});
+
 
 
 // get total_time on specific projects  (duplicate api get)
@@ -89,18 +109,14 @@ app.get("/api/sessions/:staffid/:projectid", function(req, res) {
 //create staff members using info from front end
 app.post("/api/staff", function(req,res) {
 
+  console.log("REQ BODY: " + req.body); 
   db.Staff.create(req.body).then(function(dbStaff){
+    console.log("REQ BODY: " + req.body); 
     res.json(dbStaff); 
   });
 }); 
 
-//create new project using info from front end 
-app.post("/api/project", function(req,res){
 
-  db.Project.create(req.body).then(function(dbProject){
-    res.json(dbProject); 
-  });
-});
 
 //end timer and add as a session. 
 app.post("/api/session/", function(req, res){
@@ -127,38 +143,3 @@ app.put("/api/staff/passwordchange/:id", function(req) {
 
 }; 
 
-
-//STAFF
-
- //staff GET calls 
-  //your tracked time
-
-  //staff PUT calls
-  
-  //start timer
-  //end timer 
-  //change project
-  //change service
-
-
-
-//   app.get("/api/examples", function(req, res) {
-//     db.Example.findAll({}).then(function(dbExamples) {
-//       res.json(dbExamples);
-//     });
-//   });
-
-//   // Create a new example
-//   app.post("/api/examples", function(req, res) {
-//     db.Example.create(req.body).then(function(dbExample) {
-//       res.json(dbExample);
-//     });
-//   });
-
-//   // Delete an example by id
-//   app.delete("/api/examples/:id", function(req, res) {
-//     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-//       res.json(dbExample);
-//     });
-//   });
-// };
