@@ -19,13 +19,13 @@ document.ready(function(){
         }
     }
     function createProject(projectInfo) {
-        $.post("/api/project", projectInfo)
+        $.post("/api/projects", projectInfo)
         .then(getProjects, console.log("you added a project succesfully"));
 
     }
     //get projects from the api to produce them for the staff account. 
     function getProjects() {
-        $.get("/api/project", function(info){
+        $.get("/api/projects", function(info){
             var row = []; 
 
             for (var i; i < info.length; i++) {
