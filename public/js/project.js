@@ -12,7 +12,7 @@ $(document).ready(function(){
         //no event happening at the moment. 
         // event.preventDefault(); 
 
-        if(projectDesc === 0 || expectedTime === 0) {
+        if(projectDesc.length === 0 || expectedTime.length === 0) {
             alert("make sure you have entered your Project information correctly")
         } else {
             createProject({
@@ -31,7 +31,7 @@ $(document).ready(function(){
               })
               
         //add getProjects after
-        .then(console.log("you added a project succesfully"));
+        .done(console.log("you added a project succesfully"));
         //add getProjects 
 
     }
@@ -50,5 +50,5 @@ $(document).ready(function(){
             console.log(row); 
         })
     }
-    projectSubmission(); 
+    // projectSubmission(); 
 })
