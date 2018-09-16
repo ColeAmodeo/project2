@@ -61,7 +61,7 @@ function endSession () {
   duration = (moment.duration(end.diff(start))._data.seconds - pausedTime)
   console.log("This session was: " + duration + "s and took place on " + startDate)
   enableStart();
-  enablePause();
+  disablePause();
 };
 // Pause time
 function pause() {
