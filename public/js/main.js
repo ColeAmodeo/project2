@@ -1,4 +1,3 @@
-
 moment().format();
 // ***********************************************************
 // Creating environment for timer function
@@ -10,7 +9,16 @@ var duration;
 var minutes = 0;
 var hours = 0;
 var secondsPassed = 0;
+var pauseStart;
+var pauseEnd;
+var pausedTime = 0;
 var timerId;
+// ***********************************************************
+// Setting certain buttons to disabled on page load
+// ***********************************************************
+disableEnd();
+$("#pause-btn").attr('disabled', 'disabled').fadeTo("slow", 0.5)
+$("#resume-btn").attr('disabled', 'disabled').fadeTo("slow", 0.5)
 // ***********************************************************
 // Timer Logic
 // ***********************************************************
@@ -35,43 +43,42 @@ function intervalTrigger() {
 // ***********************************************************
 //      BUTTON TRIGGER FUNCTIONS
 // ***********************************************************
-
 //Start button
 function startSession () {
-  clearInterval(timerId)
+  pausedTime = 0;
+  secondsPassed = 0;
   timerId = intervalTrigger()
   start = new moment()
   startDate = start._d
-  console.log(start)
-  //disableThis();
   enablePause();
   enableEnd();
 };
 //End Button
 function endSession () {
   clearInterval(timerId)
-  secondsPassed = 0;
   end = new moment()
-  duration = moment.duration(end.diff(start))._data.seconds
-
-  console.log(duration)
-  console.log("This session was: " + duration + "s and took place on " + startDate  )
-  //disableThis()
+  console.log("The session was paused for: " + pausedTime + "s")
+  duration = (moment.duration(end.diff(start))._data.seconds - pausedTime)
+  console.log("This session was: " + duration + "s and took place on " + startDate)
   enableStart();
 };
 // Pause time
 function pause() {
   clearInterval(timerId)
-  disableThis();
+  pauseStart = new moment()
   enableResume();
-
+  disableEnd();
 }
 // Resume time
 function resume() {
-  timerID = intervalTrigger()
-  disableThis();
+  timerId = intervalTrigger()
+  pauseEnd = new moment()
+  var breakTime = moment.duration(pauseEnd.diff(pauseStart))._data.seconds
   enablePause();
+  enableEnd();
+  return pausedTime += breakTime
 }
+
 // ***********************************************************
 // Click Handlers
 // ***********************************************************
@@ -79,14 +86,16 @@ $("#start-btn").off().on('click', startSession)
 $("#end-btn").off().on('click', endSession)
 $("#pause-btn").off().on('click', pause)
 $("#resume-btn").off().on('click', resume)
-$(":button").on('click', disableThis)
+$(".controls").on('click', disableThis)
 // ***********************************************************
-// Environment for disabling buttons to stop idiots from pressing shit they shouldnt
+// Environment for disabling buttons to stop idiots from pressing things they shouldnt
 // ***********************************************************
 function disableThis(){
   $(this).fadeTo("slow", 0.5)
-  $(this).css('color', 'red')
   $(this).attr('disabled','disabled');
+}
+function disableEnd(){
+  $("#end-btn").attr('disabled', 'disabled').fadeTo("slow", 0.5)
 }
 function enableStart() {
   $("#start-btn").removeAttr('disabled');
