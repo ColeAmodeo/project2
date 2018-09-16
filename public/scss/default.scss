@@ -158,6 +158,16 @@ input::placeholder {
 }
 }
 
+/* ---------- OnClick Divs for Entering New Information ----------- */
+
+#new-staff-container {
+    width: 500px; 
+    background-color: red;
+    display: inline-block; 
+
+
+}
+
 #admin-footer {
     margin-top: -1%;
     width: 100%; 
@@ -212,6 +222,29 @@ input::placeholder {
         }
 
         #time-end-btn:hover {
+            background-color:rgb(5, 110, 216);
+            color: white;  
+        }
+
+        #resume-btn {
+            background-color:rgb(155, 102, 4);
+        color: white; 
+        border: 1px solid white;
+        margin-top: 10%;
+        }
+
+        #pause-btn {
+            background-color:rgb(155, 102, 4);
+        color: white; 
+        border: 1px solid white;
+        }
+
+        #resume-btn:hover {
+            background-color:rgb(5, 110, 216);
+            color: white;  
+        }
+
+        #pause-btn:hover {
             background-color:rgb(5, 110, 216);
             color: white;  
         }
