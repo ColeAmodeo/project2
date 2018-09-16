@@ -61,6 +61,7 @@ function endSession () {
   duration = (moment.duration(end.diff(start))._data.seconds - pausedTime)
   console.log("This session was: " + duration + "s and took place on " + startDate)
   enableStart();
+  disablePause();
 };
 // Pause time
 function pause() {
@@ -97,19 +98,22 @@ function disableThis(){
 function disableEnd(){
   $("#end-btn").attr('disabled', 'disabled').fadeTo("slow", 0.5)
 }
+function disablePause(){
+  $("#pause-btn").attr('disabled', 'disabled').fadeTo("slow", 0.5)
+}
 function enableStart() {
   $("#start-btn").removeAttr('disabled');
-  $("#start-btn").css('opacity', '1')
+  $("#start-btn").fadeTo("slow", 1)
 }
 function enableEnd() {
   $("#end-btn").removeAttr('disabled');
-  $("#end-btn").css('opacity', '1')
+  $("#end-btn").fadeTo("slow", 1)
 }
 function enableResume() {
   $("#resume-btn").removeAttr('disabled');
-  $("#resume-btn").css('opacity', '1')
+  $("#resume-btn").fadeTo("slow", 1)
 }
 function enablePause() {
   $("#pause-btn").removeAttr('disabled');
-  $("#pause-btn").css('opacity', '1');
+  $("#pause-btn").fadeTo("slow", 1)
 }
