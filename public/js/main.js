@@ -41,8 +41,9 @@ function startSession () {
   clearInterval(timerId)
   timerId = intervalTrigger()
   start = new moment()
-  $("#start-btn").css("display", "none");
-  disable();
+  startDate = start._d
+  console.log(start)
+  //disableThis();
   enablePause();
   enableEnd();
 };
@@ -51,47 +52,55 @@ function endSession () {
   clearInterval(timerId)
   secondsPassed = 0;
   end = new moment()
-  duration = moment.duration(end.diff(start))
+  duration = moment.duration(end.diff(start))._data.seconds
+
   console.log(duration)
-  disable()
+  console.log("This session was: " + duration + "s and took place on " + startDate  )
+  //disableThis()
   enableStart();
 };
 // Pause time
 function pause() {
   clearInterval(timerId)
-  $("#start-btn").css("display", "none");
-  disable();
+  disableThis();
+  enableResume();
 
 }
 // Resume time
 function resume() {
   timerID = intervalTrigger()
-  disable()
+  disableThis();
+  enablePause();
 }
 // ***********************************************************
 // Click Handlers
 // ***********************************************************
 $("#start-btn").off().on('click', startSession)
 $("#end-btn").off().on('click', endSession)
-
+$("#pause-btn").off().on('click', pause)
+$("#resume-btn").off().on('click', resume)
+$(":button").on('click', disableThis)
 // ***********************************************************
 // Environment for disabling buttons to stop idiots from pressing shit they shouldnt
 // ***********************************************************
-function disable(id){
-  if(!id) {
-  var buttonId = this.id;
-} else var buttonId = id
-  document.getElementById("buttonId").disabled = true
+function disableThis(){
+  $(this).fadeTo("slow", 0.5)
+  $(this).css('color', 'red')
+  $(this).attr('disabled','disabled');
 }
 function enableStart() {
-  $("#start-btn").disabled = false;
+  $("#start-btn").removeAttr('disabled');
+  $("#start-btn").css('opacity', '1')
 }
 function enableEnd() {
-  $("#end-btn").disabled = false;
+  $("#end-btn").removeAttr('disabled');
+  $("#end-btn").css('opacity', '1')
 }
 function enableResume() {
-  $("#resume-btn").disabled = false;
+  $("#resume-btn").removeAttr('disabled');
+  $("#resume-btn").css('opacity', '1')
 }
 function enablePause() {
-  $("#pause-btn").disabled = false;
+  $("#pause-btn").removeAttr('disabled');
+  $("#pause-btn").css('opacity', '1');
 }
