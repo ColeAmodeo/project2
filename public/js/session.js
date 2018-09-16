@@ -19,11 +19,12 @@ $(document).ready(function(){
             alert("error, something happened, please try again")
         } else { 
             newSubmission({
-                project_desc: taskDesc,
+                task_completion_desc: taskDesc,
                 time_worked: timeWorked,
-                ProjectId: ProjectId, 
+                project_id: ProjectId, 
                 //projectId will have to be associated with dropdown
-                StaffId: StaffId
+                StaffId: StaffId,
+                date: '2018-09-12 00:00:00'
                 //staffId will have to be associated with login
             })
         } 
@@ -38,5 +39,5 @@ $(document).ready(function(){
           .fail(console.log("uh oh something went wrong when tryin to post"))
         };
 
-    sessionSubmission(); 
+    // sessionSubmission(); 
 })

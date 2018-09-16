@@ -11,6 +11,8 @@ var staffRate = 100.00
 var password = "newpassword"
 // $("#password")
 var totalTime = 1000; 
+
+var staffSelect = $("#staff")
 //the listener will create an object on click with the information above
 //will likely need to be a click button
 $(document).on("click", "#staffSubmitBtn", staffSubmission);
@@ -39,21 +41,29 @@ function newStaff(staffInfo) {
 
 }
 
-//connect this function with charts.js c
 function getStaff() {
     $.get("api/staff", function(info){
         var staffArr = [];
 
         for (var i = 0; i < info.length; i++) {
-            staffArr += info.staff_name + " ";
-            staffArr += info.staff_role + " ";
-            staffArr += info.staff_rate + " ";
+           staffArr.push(newStaffRow(info[i]));
 
         }
+        staffSelect.empty(); 
+        staffSelect.append(staffArr)
+        staffSelect.val()
         console.log("staff Arr: " + staffArr);
     });
 
 }
+
+function newStaffRow(data) {
+    var list = $("<option>");
+    list.attr("value", data.staff_id);
+    list.text(data.staff_name)
+    return list; 
+}
+
 
 // need to create a function that creates rows for all the inputs.
 

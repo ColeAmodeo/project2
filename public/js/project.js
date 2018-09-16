@@ -4,9 +4,12 @@ $(document).ready(function(){
     $("projectDescription")
     var expectedTime = 2500
     $("expectTime")
+    var projDiv = $("#projectDiv"); 
 
 
     $("#project_button").on("click", projectSubmission)
+
+    getProjects(); 
 
     function projectSubmission() {
         //no event happening at the moment. 
@@ -35,20 +38,35 @@ $(document).ready(function(){
         //add getProjects 
 
     }
+    function getProjects() { 
+        $.get("/api/projects", addProjects)
+
+    }
     //get projects from the api to produce them for the staff account. 
-    function getProjects() {
-        $.get("/api/projects", function(info){
-            var row = []; 
+    function addProjects(info) {
 
-            for (var i; i < info.length; i++) {
+        var projectArr = [];         
 
-                row += info.project_desc; 
-                console.log(info.project_desc)
+        for (var i = 0; i < info.length; i++) {
+            projectArr.push(projDropdown(info[i]));
+        }
+        projDiv.empty(); 
+        console.log("project arr: ", projectArr); 
+        projDiv.append(projectArr)
+        console.log("PROJECT DIV..." +  JSON.stringify(projDiv)); 
 
-                //likely want to add these to the dropdown. or need to come up with another solution for this. 
-            }
-            console.log(row); 
-        })
+
+            //likely want to add these to the dropdown. or need to come up with another solution for this. 
+    }
+    
+    function projDropdown(project) { 
+        var list = $("<option>"); 
+        list.attr("value", project.id)
+        console.log("PROJECT ID: " + project.id); 
+        list.text(project.project_desc); 
+        console.log("PROJECT DESC " + project.project_desc);
+        console.log("list: ", list); 
+        return list; 
     }
     // projectSubmission(); 
 })
