@@ -161,12 +161,106 @@ input::placeholder {
 /* ---------- OnClick Divs for Entering New Information ----------- */
 
 #new-staff-container {
-    width: 500px; 
-    background-color: red;
+    width: 50%; 
     display: inline-flex;
+    position: absolute;
+    left: 34%; 
+    top: 22%;
+    background-color:hsla(210,95%,25%,1);
+    color: white; 
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    padding-left: 15%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#new-project-container {
+    width: 50%; 
+    display: inline-flex;
+    position: absolute;
+    left: 34%; 
+    top: 22%;
+    background-color:hsla(210,95%,25%,1);
+    color: white; 
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    padding-left: 15%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#staff-dashboard-1 {
+    width: 50%;
+    background-color: green;
+    position: absolute;
+    left: 34%; 
+    top: 12%;
+    background-color:hsla(210,95%,25%,1);
+    color: white; 
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 10%;
+
+
+}
+#staff-dashboard-2{
+    width:50%;
+    height: 10%;
+
+    position: absolute;
+    left: 34%; 
+    top: 25%;
+    background-color:hsla(210,95%,25%,1);
+    color: white; 
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
     
+}
+#staff-circle-dash {
+    width: 300px;
+    height: 300px;
 
+    position: absolute;
+    border-radius: 50%;
+    behavior: url(PIE.htc);
+    left: 34%; 
+    top: 38%;
+    background-color:hsla(210,95%,25%,1);
+    color: white; 
+    text-align: center;
+    padding-top: 7%;
+    font-family: 'Playfair Display SC', serif;
+    
+}
+#staff-graph-dash {
+    width: 27%;
+    height: 33%;
+    position: absolute;
+    left: 57%;
+    top: 38%;
+    background-color:hsla(210,95%,25%,1);
+    color: white; 
+    text-align: center;
+    padding-top: 7%;
+    font-family: 'Playfair Display SC', serif;
 
+}
+#staff-dashboard-3{
+    width: 50%;
+    height: 10%;
+    position: absolute;
+    left: 34%;
+    top: 75%;
+    background-color:hsla(210,95%,25%,1);
+    color: white; 
+    text-align: center;
+    padding-top: 2%;
+    font-family: 'Playfair Display SC', serif;
+
+    
 }
 
 #admin-footer {
@@ -177,7 +271,6 @@ input::placeholder {
 /* //////////////////////
 /// Staff Page CSS /// 
 ///////////////////////*/
-
 #staff-wrapper {
     height: 800px;
     width: 1665px;
