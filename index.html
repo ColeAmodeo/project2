@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" media="screen" href="./css/default.min.css" />
     <link rel="shortcut icon" href="./public/assets/favicon.ico" type="image/x-icon">
@@ -24,50 +25,62 @@
                 <h2 class="lead">An independently made time tracking application for employees</h2>
                 <hr class="my-4">
                 <p>Manage shifts worked, rates of pay, and tasks needed for completion by each employee in the organization
-                    </p>
+                </p>
                 <p class="lead">
                     <a class="btn btn-outline-success" href="staff" role="button">Staff</a>
-                    <a class="btn btn-outline-success" href="admin" role="button">Admin</a>
+                      <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" id="myBtn">Admin</button>
+
                 </p>
             </div>
-            <div class="form-container">
-                <form>
-                    <div class="form-group">
+        </div>
+    </div>
 
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      
+        <!-- Modal -->
+        <div class="modal" id="myModal" role="dialog">
+            <div class="modal-dialog">
 
-                    </div>
-                    <div class="form-group">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                    <form>
+                        <div class="form-group">
 
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+                        </div>
+                        <div class="form-group">
+
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                  
+                    </form>
+                </div>
+                </div>
             </div>
         </div>
-
-
-
-
-
-        <footer class="footer">
-            <p>Copyright © Alexander Jivov - Cole Amodeo - Marshall Johnston
-                <br/> University of Toronto Coding Boot Camp 2018</p>
-        </footer>
     </div>
 
 
+       <footer class="footer">
+            <p>Copyright © Alexander Jivov - Cole Amodeo - Marshall Johnston
+                <br/> University of Toronto Coding Boot Camp 2018</p>
+        </footer> 
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-    <script src="js/index.js"></script>
-    <!-- can be moved to proper location. added here for testing -->
-    <script src="js/staff.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+
+
+        <script src="js/index.js"></script>
         <!-- can be moved to proper location. added here for testing -->
-    <script src="js/project.js"></script>
-    <script src="js/session.js"></script>
+        <script src="js/staff.js"></script>
+        <!-- can be moved to proper location. added here for testing -->
+        <script src="js/project.js"></script>
+        <script src="js/session.js"></script>
 </body>
 
 </html>
