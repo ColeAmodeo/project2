@@ -1,24 +1,17 @@
 $(document).ready(function(){
+    
+    var staffSelect = $("#staff")
 
-//get variables for creating new staff
-var staffId = 500;
-var staffName = "Kevin Christian"
-// $("#staffName")
-var staffRole = "Soul Plane Pilot"
-// $("#staffRole")
-var staffRate = 100.00
-// $("#staffRate")
-var password = "newpassword"
-// $("#password")
-var totalTime = 1000; 
-
-var staffSelect = $("#staff")
-//the listener will create an object on click with the information above
-//will likely need to be a click button
-$(document).on("click", "#staffSubmitBtn", staffSubmission);
-
-function staffSubmission() {
-    // event.preventDefault();
+    $("#staffForm").on("submit", staffSubmission);
+    
+    function staffSubmission(e) {
+        // e.preventDefault();
+        var staffId = 500; 
+        var staffName = $("#newStaffName").val(); 
+        var staffRole = $("#newStaffRole").val(); 
+        var staffRate = $("#wage").val();
+        var password = $("#passwordInput").val(); 
+        var totalTime = 0; 
 
     if(staffName.length === 0 || staffRole.length === 0 || staffRate.length === 0 || password.length === 0) {
         alert("You must add complete details in order to create a staff member");
@@ -37,7 +30,7 @@ function staffSubmission() {
 function newStaff(staffInfo) {
     $.post("/api/staff", staffInfo)
     //once there has been a post, we will need to getStaff again which will again pull all staff from via the api
-    .then(getStaff, console.log("it made it to this point, which is great"))
+    .then(getStaff, alert("You successfully added a staff"))
 
 }
 
