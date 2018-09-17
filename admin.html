@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="./css/default.min.css"
     />
 
@@ -25,23 +26,26 @@
 
     <div id="admin-wrapper" class="wrapper">
         <h1 data-aos="fade-down" data-aos-duration="2000" class="admin-welcome">Welcome to the Administration Portal </h1>
-        <!-- <div id="new-staff-container">
-            <form>
+        <div id="new-staff-container">
+            <form id="staffForm">
                 <h2>Add A Staff Member</h2>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Staff Member Name</label>
-                    <input type="email" class="form-control" id="newStaffName" aria-describedby="emailHelp" placeholder="Staff Name">
-                    <small id="emailHelp" class="form-text text-muted">Enter Staff Name</small>
+                    <label for="staffMember">Staff Member Name</label>
+                    <input type="text" class="form-control" id="newStaffName" placeholder="Staff Name">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
+                    <label for="staffsRole">Staff Role</label>
+                    <input type="text" class="form-control" id="newStaffRole" placeholder="Staff Role">
+                </div>
+                <div class="form-group">
+                    <label for="rateOfPay">Rate of Pay</label>
+                    <input type="number" class="form-control" id="wage" placeholder="$0.00/hour">
+                </div>
+                <div class="form-group">
+                    <label for="staffPassword">Password</label>
                     <input type="password" class="form-control" id="passwordInput" placeholder="Password">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Rate of Pay</label>
-                    <input type="password" class="form-control" id="wage" placeholder="$0.00/hour">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="staffSubmitBtn" class="btn btn-primary">Submit</button>
             </form>
         </div> -->
         <!-- <div id="new-project-container">
@@ -59,7 +63,7 @@
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-        </div> -->
+        </div>
 
         <div data-aos="fade-right" data-aos-duration="3000" class="nav-container">
             <h1>Time Square
@@ -97,12 +101,14 @@
             <br/> University of Toronto Coding Boot Camp 2018</p>
     </footer>
     </div>
-
+-->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
-    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/main.js"></script>
+    <script src="./js/staff.js"></script>
+    
 </body>
 
 </html>
