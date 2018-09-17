@@ -48,8 +48,8 @@ function checkForDuplicateId(staffName) {
 
         }
 
-    }
-}); 
+    })
+}; 
 
 
 function getStaff() {
