@@ -2,14 +2,16 @@ $(document).ready(function(){
 
     var db = require("../../models")
 
-    var username = $("email").replace(/\s+/g, ''); 
-    var pass = $("password")
-
+    
     $(document).on("click", "password", getPassword);
-
-
+    
+    
     function getPassword() {
-        $.get("/api/login/staff/:id", function(req,res){
+
+        var username = $("#username").replace(/\s+/g, ''); 
+        var pass = $("#password").val(); 
+
+        $.get("/api/staff/", function(req,res){
 
             db.Staff.findOne({
                 where: { 
