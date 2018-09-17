@@ -1,19 +1,20 @@
 $(document).ready(function(){
 
-    var projectDesc = "Facebook UX Build"
-    $("projectDescription")
-    var expectedTime = 2500
-    $("expectTime")
     var projDiv = $("#projectDiv"); 
-
-
-    $("#project_button").on("click", projectSubmission)
-
+    
+    $("#projectForm").on("submit", projectSubmission)
+    
     getProjects(); 
+    
+    
+    function projectSubmission(e) {
+        e.preventDefault(); 
 
-    function projectSubmission() {
-        //no event happening at the moment. 
-        // event.preventDefault(); 
+        var projectDesc = $("#newProject").val(); 
+        var expectedTime = $("#cost").val(); 
+
+        console.log(projectDesc);
+        console.log(expectedTime);
 
         if(projectDesc.length === 0 || expectedTime.length === 0) {
             alert("make sure you have entered your Project information correctly")
@@ -26,8 +27,8 @@ $(document).ready(function(){
     }
     function createProject(projectInfo) {
         console.log("PROJECT INFO: ", projectInfo);
-        // $.post("/api/projects", function() {
-            $.ajax({
+
+        $.ajax({
                 type: "POST",
                 url: "/api/projects",
                 data: projectInfo

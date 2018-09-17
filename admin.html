@@ -27,7 +27,7 @@
     <div id="admin-wrapper" class="wrapper">
         <h1 data-aos="fade-down" data-aos-duration="2000" class="admin-welcome">Welcome to the Administration Portal </h1>
         <div id="new-staff-container">
-            <form id="staffForm">
+            <!-- <form id="staffForm">
                 <h2>Add A Staff Member</h2>
                 <div class="form-group">
                     <label for="staffMember">Staff Member Name</label>
@@ -47,25 +47,24 @@
                 </div>
                 <button type="submit" id="staffSubmitBtn" class="btn btn-primary">Submit</button>
             </form>
-        </div> -->
-        <!-- <div id="new-project-container">
-            <form>
+        </div>  -->
+        <div id="new-project-container">
+            <form id="projectForm">
                 <h2>Add A New Project</h2>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">New Project Name</label>
-                    <input type="email" class="form-control" id="newProject" aria-describedby="emailHelp" placeholder="Project Name">
-                    <small id="emailHelp" class="form-text text-muted">Project Name</small>
+                    <label for="projectName">New Project Name</label>
+                    <input type="text" class="form-control" id="newProject" placeholder="Project Name">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Expected Cost</label>
-                    <input type="password" class="form-control" id="cost" placeholder="$0.00/hour">
+                    <input type="number" class="form-control" id="cost" placeholder="Total Hours for Project">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
 
-        <div data-aos="fade-right" data-aos-duration="3000" class="nav-container">
+        <!-- <div data-aos="fade-right" data-aos-duration="3000" class="nav-container">
             <h1>Time Square
                 <i class="far fa-clock"></i>
             </h1>
@@ -88,12 +87,12 @@
                     <button class="btn btn-outline-success" href="#">Logout</button>
                 </li>
             </ul>
-        </div>
-        <div id="staff-dashboard-1">Staff Data Dash 1</div>
+        </div> -->
+        <!-- <div id="staff-dashboard-1">Staff Data Dash 1</div>
         <div id="staff-dashboard-2">Staff Data Dash 2</div>
         <div id="staff-circle-dash">Staff Data Clock Div</div>
         <div id="staff-graph-dash">Staff Graph Div</div>
-        <div id="staff-dashboard-3">Staff Data Dash 3</div>
+        <div id="staff-dashboard-3">Staff Data Dash 3</div> -->
     </div>
 
     <footer id="admin-footer" class="footer">
@@ -101,13 +100,14 @@
             <br/> University of Toronto Coding Boot Camp 2018</p>
     </footer>
     </div>
--->
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
     <script src="./js/main.js"></script>
     <script src="./js/staff.js"></script>
+    <script src="./js/project.js"></script>
     
 </body>
 
