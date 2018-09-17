@@ -8,7 +8,7 @@
     background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: cover; 
     height: 800px;
-    width: 1800px;
+    width: 100%;
 }
 
 .container {
@@ -95,7 +95,7 @@ input::placeholder {
     text-align: center;
     font-family: 'Playfair Display SC', serif;
     position: absolute;
-    margin-top: 48%; 
+    top: 90%;
     height: 10%; 
     font-size: 12px; 
 
@@ -382,6 +382,7 @@ input::placeholder {
 }
 
 #staff-footer {
+    
     margin-top: -1%;
     width: 100%; 
 }
