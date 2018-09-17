@@ -5,7 +5,7 @@ $(document).ready(function(){
     $("#staffForm").on("submit", staffSubmission);
     
     function staffSubmission(e) {
-        e.preventDefault();
+        // e.preventDefault();
         var staffId = 500; 
         var staffName = $("#newStaffName").val(); 
         var staffRole = $("#newStaffRole").val(); 
