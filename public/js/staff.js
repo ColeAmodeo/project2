@@ -2,7 +2,7 @@ $(document).ready(function(){
     
     var staffSelect = $("#staff")
     
-    $("#staffForm").on("submit", staffSubmission($("#newStaffName").val()));
+    $("#staffForm").on("submit", checkForDuplicateId($("#newStaffName").val()));
     
     function staffSubmission(e) {
         // e.preventDefault();
@@ -45,12 +45,10 @@ function checkForDuplicateId(staffName) {
             alert("Sorry that username already exists, please create a new staff or talk to your administrator");
         } else { 
             staffSubmission(); 
-
         }
 
     })
 }; 
-
 
 function getStaff() {
     $.get("/api/staff", function(info){

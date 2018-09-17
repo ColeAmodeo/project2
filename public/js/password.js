@@ -3,7 +3,7 @@ $(document).ready(function(){
     var db = require("../../models")
 
     
-    $(document).on("click", "password", getPassword);
+    $(document).on("click", "#password", getPassword);
     
     
     function getPassword() {
