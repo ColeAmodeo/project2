@@ -38,15 +38,17 @@
       <div class="modal" id="endSessionModal" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-body">
-              <h5>Please Enter What You Worked On:</h5>
-              <form id="formInput">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="taskInput" placeholder="Enter a synopsis of your work">
-                </div>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Task Summary</span>
+              <div class="modal-body">
+                  <h5>Please Enter What You Worked On:</h5>
+                  
+              <form id="sessionForm">
+                 
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Task Summary</span>
+                    </div>
+
+                    <textarea class="form-control" id="taskInfo" aria-label="With textarea"></textarea>
                   </div>
                   <textarea class="form-control" aria-label="With textarea"></textarea>
                 </div>
@@ -55,6 +57,8 @@
                 </div>
                 <button type="submit" id="admin" class="btn btn-primary">Submit</button>
 
+                  <button type="submit" id="modalConfirmation" class="btn btn-primary">Submit</button>
+            
               </form>
             </div>
           </div>

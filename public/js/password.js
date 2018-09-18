@@ -6,6 +6,7 @@ var pass = "";
     $("#admin").on("click", getPassword);
     $("#staff").on("click", getPass);
 
+    //staff login 
     function getPass(event){
         event.preventDefault(); 
 
@@ -27,7 +28,7 @@ var pass = "";
             }
         })
     }
-    
+    //admin login
     function getPassword(event){
         event.preventDefault(); 
 
