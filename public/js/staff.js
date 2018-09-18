@@ -1,18 +1,26 @@
 $(document).ready(function(){
     
     var staffSelect = $("#staff")
+    var staffId = 500; 
+    var staffName = "";
+    var staffRole = ""; 
+    var staffRate = "";
+    var password = ""; 
+    var totalTime = 0; 
+
     
     $("#staffForm").on("submit", checkForDuplicateId);
     
     function staffSubmission(e) {
+ 
         console.log("stage 2"); 
-        e.preventDefault();
-        var staffId = 500; 
-        var staffName = $("#newStaffName").val(); 
-        var staffRole = $("#newStaffRole").val(); 
-        var staffRate = $("#wage").val();
-        var password = $("#passwordInput").val(); 
-        var totalTime = 0; 
+        // staffId = 500; 
+        // staffName = $("#newStaffName").val(); 
+        // staffRole = $("#newStaffRole").val(); 
+        // staffRate = $("#wage").val();
+        // password = $("#passwordInput").val(); 
+        // totalTime = 0; 
+        console.log(staffId, + staffName +  staffRole +  staffRate + totalTime + password);
 
     if(staffName.length === 0 || staffRole.length === 0 || staffRate.length === 0 || password.length === 0) {
         alert("You must add complete details in order to create a staff member");
@@ -36,10 +44,17 @@ function newStaff(staffInfo) {
 }
 
 function checkForDuplicateId(staffName) {
-    var staffName = $("#newStaffName").val(); 
+    staffName.preventDefault(); 
 
+    staffId = 500; 
+    staffName = $("#newStaffName").val(),
+    staffRole = $("#newStaffRole").val(), 
+    staffRate = $("#wage").val(), 
+    password = $("#passwordInput").val() 
+    
     console.log("staffName: " + staffName)
-    console.log("made it this far....");
+    console.log("checkForDups: ", + staffName +  staffRole +  staffRate + password);
+
     var input = { username: staffName}; 
     $.ajax({
         type: "POST",
@@ -48,8 +63,9 @@ function checkForDuplicateId(staffName) {
 
     }).then(function(user){
         console.log("the user: ", user); 
-        if (!user) {
+        if (user === 0) {
             staffSubmission(); 
+            console.log("no user:  has tripped"); 
         } else {
             alert("This user already exists, please try another user"); 
         }

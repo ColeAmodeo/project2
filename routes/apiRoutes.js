@@ -47,13 +47,14 @@ app.post("/api/staff/authenticateUser", function (req, res){
 
 app.post("/api/staff/duplicateUser", function(req,res){
   var input = req.body; 
-  db.Staff.findAll({
+  console.log(input); 
+  db.Staff.count({
     where: {
-      staff_name: input.staffName
+      staff_name: input.username
     }
   }).then(function(result){
     res.json(result); 
-    console.log(result); 
+    console.log("the result of the backend call: ",result); 
   })
 })
 
