@@ -42,6 +42,9 @@ var myChart = new Chart(ctx, {
 });
 };
 function barGraph(dataPull) {
+$.get("/api/projects", function(staffData) {
+  console.log(staffData)
+});
 var dataArray = [1, 2, 4, 5];
 var labelArray = ['John', 'Tim', 'Gay'];
 //Pull individual project and all employees who worked on it, use a for loop to push their respective data into names and data
