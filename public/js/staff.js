@@ -11,7 +11,7 @@ $(document).ready(function(){
     
     $("#staffForm").on("submit", checkForDuplicateId);
     
-    function staffSubmission(e) {
+    function staffSubmission() {
  
         console.log("stage 2"); 
         // staffId = 500; 
@@ -20,7 +20,7 @@ $(document).ready(function(){
         // staffRate = $("#wage").val();
         // password = $("#passwordInput").val(); 
         // totalTime = 0; 
-        console.log(staffId, + staffName +  staffRole +  staffRate + totalTime + password);
+        console.log(staffId + " " + staffName+ " " +  staffRole+ " " +  staffRate + " "+ totalTime + " "+  password);
 
     if(staffName.length === 0 || staffRole.length === 0 || staffRate.length === 0 || password.length === 0) {
         alert("You must add complete details in order to create a staff member");
@@ -43,8 +43,8 @@ function newStaff(staffInfo) {
 
 }
 
-function checkForDuplicateId(staffName) {
-    staffName.preventDefault(); 
+function checkForDuplicateId(event) {
+    event.preventDefault(); 
 
     staffId = 500; 
     staffName = $("#newStaffName").val(),
@@ -53,7 +53,7 @@ function checkForDuplicateId(staffName) {
     password = $("#passwordInput").val() 
     
     console.log("staffName: " + staffName)
-    console.log("checkForDups: ", + staffName +  staffRole +  staffRate + password);
+    console.log("checkForDups: " + staffName +  staffRole +  staffRate + password);
 
     var input = { username: staffName}; 
     $.ajax({
@@ -65,7 +65,8 @@ function checkForDuplicateId(staffName) {
         console.log("the user: ", user); 
         if (user === 0) {
             staffSubmission(); 
-            console.log("no user:  has tripped"); 
+            window.location.reload();
+
         } else {
             alert("This user already exists, please try another user"); 
         }
