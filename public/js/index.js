@@ -99,9 +99,18 @@
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 $(document).ready(function(){
-    $("#myBtn").click(function(){
+    $("#myBtn1").click(function(){
         console.log("this is working");
-        $("#myModal").modal();
+        $("#myModal1").modal();
+       
+        
+    });
+});
+
+$(document).ready(function(){
+    $("#myBtn2").click(function(){
+        console.log("this is working");
+        $("#myModal2").modal();
        
         
     });

@@ -30,9 +30,10 @@
                 <p>Manage shifts worked, rates of pay, and tasks needed for completion by each employee in the organization
                 </p>
                 <p class="lead">
-                    <a class="btn btn-outline-success" href="staff" role="button">Staff</a>
+                        <button type="button" class="btn btn-outline-success" id="myBtn1">Staff</button>
+
                       <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-outline-success" id="myBtn">Admin</button>
+                    <button type="button" class="btn btn-outline-success" id="myBtn2">Admin</button>
 
                 </p>
             </div>
@@ -40,14 +41,39 @@
     </div>
 
       
-        <!-- Modal -->
-        <div class="modal" id="myModal" role="dialog">
+        <!-- Admin Modal -->
+        <div class="modal" id="myModal1" role="dialog">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-body">
                         <h5>Please Enter Your Admin Account Details</h5>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+                        </div>
+                        <div class="form-group">
+
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                  
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="myModal2" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Staff Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5>Please Enter Your Staff Account Details</h5>
                     <form>
                         <div class="form-group">
                             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
