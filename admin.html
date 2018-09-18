@@ -12,6 +12,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="./css/default.min.css"
     />
 
@@ -26,68 +27,97 @@
 
     <div id="admin-wrapper" class="wrapper">
         <h1 data-aos="fade-down" data-aos-duration="2000" class="admin-welcome">Welcome to the Administration Portal </h1>
-        <div id="new-staff-container">
-            <!-- <form id="staffForm">
-                <h2>Add A Staff Member</h2>
-                <div class="form-group">
-                    <label for="staffMember">Staff Member Name</label>
-                    <input type="text" class="form-control" id="newStaffName" placeholder="Staff Name">
-                </div>
-                <div class="form-group">
-                    <label for="staffsRole">Staff Role</label>
-                    <input type="text" class="form-control" id="newStaffRole" placeholder="Staff Role">
-                </div>
-                <div class="form-group">
-                    <label for="rateOfPay">Rate of Pay</label>
-                    <input type="number" class="form-control" id="wage" placeholder="$0.00/hour">
-                </div>
-                <div class="form-group">
-                    <label for="staffPassword">Password</label>
-                    <input type="password" class="form-control" id="passwordInput" placeholder="Password">
-                </div>
-                <button type="submit" id="staffSubmitBtn" class="btn btn-primary">Submit</button>
-            </form>
-        </div>  -->
-        <div id="new-project-container">
-            <form id="projectForm">
-                <h2>Add A New Project</h2>
-                <div class="form-group">
-                    <label for="projectName">New Project Name</label>
-                    <input type="text" class="form-control" id="newProject" placeholder="Project Name">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Expected Cost</label>
-                    <input type="number" class="form-control" id="cost" placeholder="Total Hours for Project">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
 
         <div data-aos="fade-right" data-aos-duration="3000" class="nav-container">
-            <h1>Time Square
-                <i class="far fa-clock"></i>
-            </h1>
-            <hr />
+                <h1>Time Square
+                    <i class="far fa-clock"></i>
+                </h1>
+                <hr />
+    
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <button class="btn btn-outline-success" href="#">Change Password</button>
+                    </li>
+                    <li class="nav-item">
+                            <button type="button" class="btn btn-outline-success" id="myBtn2">New Project</button>
+    
+                    </li>
+                    <li class="nav-item">
+                            <button type="button" class="btn btn-outline-success" id="myBtn1">New Employee</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-success" href="#">Display Employee Data</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-success" href="#">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        
 
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <button class="btn btn-outline-success" href="#">Change Password</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-success" href="#">New Employee</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-success" href="#">New Project</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-success" href="#">Display Employee Data</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-success" href="#">Logout</button>
-                </li>
-            </ul>
+
+         <!-- Admin New Employee Modal -->
+         <div class="modal" id="myModal1" role="dialog">
+                <div class="modal-dialog">
+    
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h5>Please Enter Your Admin Account Details</h5>
+                            <form id="staffForm">
+                                    <h2>Add A Staff Member</h2>
+                                    <div class="form-group">
+                                        <label for="staffMember">Staff Member Name</label>
+                                        <input type="text" class="form-control" id="newStaffName" placeholder="Staff Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="staffsRole">Staff Role</label>
+                                        <input type="text" class="form-control" id="newStaffRole" placeholder="Staff Role">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rateOfPay">Rate of Pay</label>
+                                        <input type="number" class="form-control" id="wage" placeholder="$0.00/hour">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="staffPassword">Password</label>
+                                        <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                                    </div>
+                                    <button type="submit" id="staffSubmitBtn" class="btn btn-primary">Submit</button>
+                                </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+         <!-- Admin New Project Modal -->
+        <div class="modal" id="myModal2" role="dialog">
+                <div class="modal-dialog">
+    
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                                <form id="projectForm">
+                                        <h2>Add A New Project</h2>
+                                        <div class="form-group">
+                                            <label for="projectName">New Project Name</label>
+                                            <input type="text" class="form-control" id="newProject" placeholder="Project Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Expected Cost</label>
+                                            <input type="number" class="form-control" id="cost" placeholder="Total Hours for Project">
+                                        </div>
+                        
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       
         <div id="staff-dashboard-1">Staff Data Dash 1</div>
         <div id="staff-dashboard-2">Staff Data Dash 2</div>
         <div id="staff-circle-dash">Staff Data Clock Div</div>
@@ -95,17 +125,20 @@
         <div id="staff-dashboard-3">Staff Data Dash 3</div>
     </div>
 
-    <footer id="admin-footer" class="footer">
-        <p>Copyright © Alexander Jivov - Cole Amodeo - Marshall Johnston
-            <br/> University of Toronto Coding Boot Camp 2018</p>
-    </footer>
+    
     </div>
+
+    <footer id="admin-footer" class="footer">
+            <p>Copyright © Alexander Jivov - Cole Amodeo - Marshall Johnston
+                <br/> University of Toronto Coding Boot Camp 2018</p>
+        </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
     <script src="./js/charts.js"></script>
+    <script src="js/index.js"></script>
     <script src="./js/staff.js"></script>
     <script src="./js/project.js"></script>
 
