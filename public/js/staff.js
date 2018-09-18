@@ -1,17 +1,26 @@
 $(document).ready(function(){
     
     var staffSelect = $("#staff")
+    var staffId = 500; 
+    var staffName = "";
+    var staffRole = ""; 
+    var staffRate = "";
+    var password = ""; 
+    var totalTime = 0; 
+
     
-    // $("#staffForm").on("submit", checkForDuplicateId($("#newStaffName").val()));
+    $("#staffForm").on("submit", checkForDuplicateId);
     
-    function staffSubmission(e) {
-        // e.preventDefault();
-        var staffId = 500; 
-        var staffName = $("#newStaffName").val(); 
-        var staffRole = $("#newStaffRole").val(); 
-        var staffRate = $("#wage").val();
-        var password = $("#passwordInput").val(); 
-        var totalTime = 0; 
+    function staffSubmission() {
+ 
+        console.log("stage 2"); 
+        // staffId = 500; 
+        // staffName = $("#newStaffName").val(); 
+        // staffRole = $("#newStaffRole").val(); 
+        // staffRate = $("#wage").val();
+        // password = $("#passwordInput").val(); 
+        // totalTime = 0; 
+        console.log(staffId + " " + staffName+ " " +  staffRole+ " " +  staffRate + " "+ totalTime + " "+  password);
 
     if(staffName.length === 0 || staffRole.length === 0 || staffRate.length === 0 || password.length === 0) {
         alert("You must add complete details in order to create a staff member");
@@ -34,21 +43,35 @@ function newStaff(staffInfo) {
 
 }
 
-// function checkForDuplicateId(staffName) {
+function checkForDuplicateId(event) {
+    event.preventDefault(); 
 
-//     db.Staff.findAll({
-//         where: {
-//             staff_name: staffName
-//         }
-//     }).then(function(user){
-//         if (user.length > 1) {
-//             alert("Sorry that username already exists, please create a new staff or talk to your administrator");
-//         } else { 
-//             staffSubmission(); 
-//         }
+    staffId = 500; 
+    staffName = $("#newStaffName").val(),
+    staffRole = $("#newStaffRole").val(), 
+    staffRate = $("#wage").val(), 
+    password = $("#passwordInput").val() 
+    
+    console.log("staffName: " + staffName)
+    console.log("checkForDups: " + staffName +  staffRole +  staffRate + password);
 
-//     })
-// }; 
+    var input = { username: staffName}; 
+    $.ajax({
+        type: "POST",
+        url: "/api/staff/duplicateUser", 
+        data: input
+
+    }).then(function(user){
+        console.log("the user: ", user); 
+        if (user === 0) {
+            staffSubmission(); 
+            window.location.reload();
+
+        } else {
+            alert("This user already exists, please try another user"); 
+        }
+    })
+}; 
 
 function getStaff() {
     $.get("/api/staff", function(info){

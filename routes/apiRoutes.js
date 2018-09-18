@@ -45,6 +45,19 @@ app.post("/api/staff/authenticateUser", function (req, res){
   })
 })
 
+app.post("/api/staff/duplicateUser", function(req,res){
+  var input = req.body; 
+  console.log(input); 
+  db.Staff.count({
+    where: {
+      staff_name: input.username
+    }
+  }).then(function(result){
+    res.json(result); 
+    console.log("the result of the backend call: ",result); 
+  })
+})
+
 
 app.get("/api/staff", function(req,res){
   db.Staff.findAll({
