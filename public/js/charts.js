@@ -1,4 +1,5 @@
 $("#myChart").css('display', 'none')
+$()
 function pieGraph(dataPull) {
   // Filler data
 var dataArray = [1, 2, 4, 5];
