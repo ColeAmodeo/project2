@@ -30,10 +30,10 @@
                 <p>Manage shifts worked, rates of pay, and tasks needed for completion by each employee in the organization
                 </p>
                 <p class="lead">
-                        <button type="button" class="btn btn-outline-success" id="myBtn1">Staff</button>
+                        <button type="button" class="btn btn-outline-success" id="myBtn1">Admin</button>
 
                       <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-outline-success" id="myBtn2">Admin</button>
+                    <button type="button" class="btn btn-outline-success" id="myBtn2">Staff</button>
 
                 </p>
             </div>
@@ -49,16 +49,16 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <h5>Please Enter Your Admin Account Details</h5>
-                    <form>
+                    <form id="inputForm">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="text" class="form-control" id="username"  placeholder="Enter Admin Name">
 
                         </div>
                         <div class="form-group">
 
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <input type="password" class="form-control" id="password" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" id="admin" class="btn btn-primary">Submit</button>
                   
                     </form>
                 </div>
@@ -74,16 +74,16 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <h5>Please Enter Your Staff Account Details</h5>
-                    <form>
+                    <form id="formInput1">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="text" class="form-control" id="username1" placeholder="Enter Staff Name">
 
                         </div>
                         <div class="form-group">
 
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <input type="password" class="form-control" id="password1" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" id="staff" class="btn btn-primary">Submit</button>
                   
                     </form>
                 </div>
@@ -108,8 +108,9 @@
         <!-- can be moved to proper location. added here for testing -->
         <script src="js/staff.js"></script>
         <!-- can be moved to proper location. added here for testing -->
-        <script src="js/project.js"></script>
-        <script src="js/session.js"></script>
+    <script src="js/project.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/password.js"></script>
 </body>
 
 </html>

@@ -1,17 +1,14 @@
 $(document).ready(function(){
 
-    var timeWorked = 5
-    $("#timeWorked"); 
-    var taskDesc = "front end setup"
-    $("#taskCompletedDesc");
-    var StaffId = 1
-    $("value");
-    var ProjectId = 2
-    $("projectValue"); 
+    var timeWorked = $("#timeWorked"); 
+    var taskDesc = $("#taskCompletedDesc");
+    var StaffId = ""; 
+    var ProjectId = $("projectValue"); 
 
     $("#modalConfirmation").on("click", sessionSubmission) 
 
     function sessionSubmission() {
+        staffId = sessionStorage.getItem("staffid");
             // dont need right now until we confirm the button. 
             // event.preventDefault(); 
 

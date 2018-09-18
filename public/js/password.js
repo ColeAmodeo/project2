@@ -1,28 +1,55 @@
 $(document).ready(function(){
 
-    var db = require("../../models")
+var username = ""; 
+var pass = ""; 
 
-    var username = $("email").replace(/\s+/g, ''); 
-    var pass = $("password")
+    $("#admin").on("click", getPassword);
+    $("#staff").on("click", getPass);
 
-    $(document).on("click", "password", getPassword);
+    function getPass(event){
+        event.preventDefault(); 
 
+    username = $("#username1").val(); 
+    pass = $("#password1").val(); 
+    var authInput = { username: username, pass: pass };
 
-    function getPassword() {
-        $.get("/api/login/staff/:id", function(req,res){
+        $.ajax({
+            type: "POST",
+            url: "/api/staff/authenticateUser",
+            data: authInput
 
-            db.Staff.findOne({
-                where: { 
-                    staff_name: username
-                }
-            }).then(function(user){
-                if (user.password === pass) {
-                res.sendFile(path.join(__dirname, "../staff.html"))
-                } else {
-                    alert("Please enter a proper username and password"); 
-                }
-            })
-       
+        }).then(function(user){
+            if (user) {
+                sessionStorage.setItem("staffid", user.id);
+                location.href="/staff"
+            } else {
+                alert("please enter a proper username and password");
+            }
         })
     }
+    
+    function getPassword(event){
+        event.preventDefault(); 
+
+        username = $("#username").val(); 
+        pass = $("#password").val(); 
+        var authInput = { username: username, pass: pass}; 
+
+        console.log("Auth input: ", authInput)
+
+        $.ajax({
+        type: "POST",
+        url: "/api/admin/authenticateUser",
+        data: authInput
+        }).then(function(user){
+
+            if (user) {
+                location.href="/admin";
+            } else { 
+                alert("Please enter a proper username and password"); 
+            }
+        })    
+
+    }; 
+    
 }); 

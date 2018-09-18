@@ -13,9 +13,6 @@ $(document).ready(function(){
         var projectDesc = $("#newProject").val(); 
         var expectedTime = $("#cost").val(); 
 
-        console.log(projectDesc);
-        console.log(expectedTime);
-
         if(projectDesc.length === 0 || expectedTime.length === 0) {
             alert("make sure you have entered your Project information correctly")
         } else {
@@ -25,8 +22,8 @@ $(document).ready(function(){
             })
         }
     }
+    //function to create project to database using above object
     function createProject(projectInfo) {
-        console.log("PROJECT INFO: ", projectInfo);
 
         $.ajax({
                 type: "POST",
@@ -52,9 +49,7 @@ $(document).ready(function(){
             projectArr.push(projDropdown(info[i]));
         }
         projDiv.empty(); 
-        console.log("project arr: ", projectArr); 
         projDiv.append(projectArr)
-        console.log("PROJECT DIV..." +  JSON.stringify(projDiv)); 
 
 
             //likely want to add these to the dropdown. or need to come up with another solution for this. 
@@ -63,10 +58,7 @@ $(document).ready(function(){
     function projDropdown(project) { 
         var list = $("<option>"); 
         list.attr("value", project.id)
-        console.log("PROJECT ID: " + project.id); 
         list.text(project.project_desc); 
-        console.log("PROJECT DESC " + project.project_desc);
-        console.log("list: ", list); 
         return list; 
     }
     // projectSubmission(); 
