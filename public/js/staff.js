@@ -12,15 +12,6 @@ $(document).ready(function(){
     $("#staffForm").on("submit", checkForDuplicateId);
     
     function staffSubmission() {
- 
-        console.log("stage 2"); 
-        // staffId = 500; 
-        // staffName = $("#newStaffName").val(); 
-        // staffRole = $("#newStaffRole").val(); 
-        // staffRate = $("#wage").val();
-        // password = $("#passwordInput").val(); 
-        // totalTime = 0; 
-        console.log(staffId + " " + staffName+ " " +  staffRole+ " " +  staffRate + " "+ totalTime + " "+  password);
 
     if(staffName.length === 0 || staffRole.length === 0 || staffRate.length === 0 || password.length === 0) {
         alert("You must add complete details in order to create a staff member");
@@ -36,6 +27,7 @@ $(document).ready(function(){
     }
 
 }
+
 function newStaff(staffInfo) {
     $.post("/api/staff", staffInfo)
     //once there has been a post, we will need to getStaff again which will again pull all staff from via the api
@@ -97,9 +89,7 @@ function newStaffRow(data) {
 }
 
 
-// need to create a function that creates rows for all the inputs.
+// need to create a function that creates rows for all the inputs
 
-
-// staffSubmission();
 
 })

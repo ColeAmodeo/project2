@@ -117,3 +117,36 @@ function enablePause() {
   $("#pause-btn").removeAttr('disabled');
   $("#pause-btn").fadeTo("slow", 1)
 }
+
+
+  $.ajax({
+   type: "GET",
+   url: "/api/projects"
+}).then(function(result){
+  console.log("DO YOU RUN?", result); 
+  renderProjectList(result); 
+  
+})
+
+function renderProjectList(result) {
+  console.log("YOYOMA, ", result); 
+
+  var projectRow = [];
+
+  for (var i = 0; i < result.length; i++) {
+    projectRow.push(dropdown(result[i]));
+
+  }
+  $("#projectDropdown").empty();
+  $("#projectDropdown").append(projectRow);
+  $("#projectDropdown").val(result[i].id);
+
+}
+
+   
+function dropdown(result) {
+  var listOption = $("<option>");
+  listOption.attr("value", result.id);
+  listOption.text(result.project_desc);
+  return listOption;
+}
