@@ -8,9 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" media="screen" href="./css/default.min.css" />
     <link rel="shortcut icon" href="./public/assets/favicon.ico" type="image/x-icon">
@@ -20,51 +22,91 @@
     <div class="wrapper">
         <div data-aos="zoom-in" data-aos-duration="3000" class="container">
             <div class="jumbotron">
-                <h1 id="staff-jumbotron" class="display-4">Time Square</h1>
+                <h1 id="staff-jumbotron" class="display-4">Time Square 
+                        <i class="far fa-clock"></i></h1>
+                </h1>
                 <h2 class="lead">An independently made time tracking application for employees</h2>
                 <hr class="my-4">
                 <p>Manage shifts worked, rates of pay, and tasks needed for completion by each employee in the organization
-                    </p>
+                </p>
                 <p class="lead">
-                    <a class="btn btn-outline-success" href="staff" role="button">Staff</a>
-                    <a class="btn btn-outline-success" href="admin" role="button">Admin</a>
+                        <button type="button" class="btn btn-outline-success" id="myBtn1">Staff</button>
+
+                      <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-outline-success" id="myBtn2">Admin</button>
+
                 </p>
             </div>
-            <div class="form-container">
-                <form id="inputForm">
-                    <div class="form-group">
+        </div>
+    </div>
 
-                        <input type="text" class="form-control" id="username" placeholder="Enter Name">
+      
+        <!-- Admin Modal -->
+        <div class="modal" id="myModal1" role="dialog">
+            <div class="modal-dialog">
 
-                    </div>
-                    <div class="form-group">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5>Please Enter Your Admin Account Details</h5>
+                    <form id="inputForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="username"  placeholder="Enter Name">
 
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                  
+                    </form>
+                </div>
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="modal" id="myModal2" role="dialog">
+            <div class="modal-dialog">
 
+                <!-- Staff Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5>Please Enter Your Staff Account Details</h5>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 
+                        </div>
+                        <div class="form-group">
 
-
-        <footer class="footer">
-            <p>Copyright © Alexander Jivov - Cole Amodeo - Marshall Johnston
-                <br/> University of Toronto Coding Boot Camp 2018</p>
-        </footer>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                  
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
+       <footer class="footer">
+            <p>Copyright © Alexander Jivov - Cole Amodeo - Marshall Johnston
+                <br/> University of Toronto Coding Boot Camp 2018</p>
+        </footer> 
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-    <script src="js/index.js"></script>
-    <!-- can be moved to proper location. added here for testing -->
-    <script src="js/staff.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+
+
+        <script src="js/index.js"></script>
+        <!-- can be moved to proper location. added here for testing -->
+        <script src="js/staff.js"></script>
         <!-- can be moved to proper location. added here for testing -->
     <script src="js/project.js"></script>
     <script src="js/session.js"></script>

@@ -97,3 +97,21 @@
 // // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+$(document).ready(function(){
+    $("#myBtn1").click(function(){
+        console.log("this is working");
+        $("#myModal1").modal();
+       
+        
+    });
+});
+
+$(document).ready(function(){
+    $("#myBtn2").click(function(){
+        console.log("this is working");
+        $("#myModal2").modal();
+       
+        
+    });
+});
