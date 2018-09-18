@@ -37,7 +37,7 @@ function newStaff(staffInfo) {
 
 function checkForDuplicateId(staffName) {
     var staffName = $("#newStaffName").val(); 
-    
+
     console.log("staffName: " + staffName)
     console.log("made it this far....");
     var input = { username: staffName}; 
