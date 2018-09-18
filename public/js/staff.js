@@ -2,10 +2,11 @@ $(document).ready(function(){
     
     var staffSelect = $("#staff")
     
-    $("#staffForm").on("submit", checkForDuplicateId($("#newStaffName").val()));
+    $("#staffForm").on("submit", checkForDuplicateId);
     
     function staffSubmission(e) {
-        // e.preventDefault();
+        console.log("stage 2"); 
+        e.preventDefault();
         var staffId = 500; 
         var staffName = $("#newStaffName").val(); 
         var staffRole = $("#newStaffRole").val(); 
@@ -35,18 +36,23 @@ function newStaff(staffInfo) {
 }
 
 function checkForDuplicateId(staffName) {
+    var staffName = $("#newStaffName").val(); 
+    
+    console.log("staffName: " + staffName)
+    console.log("made it this far....");
+    var input = { username: staffName}; 
+    $.ajax({
+        type: "POST",
+        url: "/api/staff/duplicateUser", 
+        data: input
 
-    db.Staff.findAll({
-        where: {
-            staff_name: staffName
-        }
     }).then(function(user){
-        if (user.length > 1) {
-            alert("Sorry that username already exists, please create a new staff or talk to your administrator");
-        } else { 
+        console.log("the user: ", user); 
+        if (!user) {
             staffSubmission(); 
+        } else {
+            alert("This user already exists, please try another user"); 
         }
-
     })
 }; 
 
