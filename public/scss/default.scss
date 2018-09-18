@@ -84,7 +84,30 @@
     }
 }
 
-#myModal{
+#myModal1 {
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    .modal-body {
+        background-color:hsla(210,95%,25%,1);
+        color: white;
+        font-family: 'Playfair Display SC', serif;
+    }
+
+    .modal-content {
+        margin-top: 50%;
+    }
+    
+    .btn-primary {
+        background-color:rgb(155, 102, 4);
+        color: white; 
+        border: 1px solid white;
+        margin-left: 40%;
+    }
+}
+
+#myModal2 {
     background: #c2e59c; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -295,8 +318,9 @@
     height: 800px;
     width: 1665px;
 
-
 }
+
+
 
 #staff-jumbotron {
     background-color:hsla(210,95%,25%,1);
@@ -316,31 +340,10 @@
         height: 300px;
         justify-content: center;
         border-radius: 2%;
+    }
 
-        #time-start-btn {
-            background-color:rgb(155, 102, 4);
-        color: white; 
-        border: 1px solid white;
-        margin-top: 10%;
-        }
-
-        #time-end-btn {
-            background-color:rgb(155, 102, 4);
-        color: white; 
-        border: 1px solid white;
-        }
-
-        #time-start-btn:hover {
-            background-color:rgb(5, 110, 216);
-            color: white;  
-        }
-
-        #time-end-btn:hover {
-            background-color:rgb(5, 110, 216);
-            color: white;  
-        }
-
-        #resume-btn {
+.controls {
+     #resume-btn {
             background-color:rgb(155, 102, 4);
         color: white; 
         border: 1px solid white;
@@ -348,7 +351,7 @@
         }
 
         #pause-btn {
-            background-color:rgb(155, 102, 4);
+        background-color:rgb(155, 102, 4);
         color: white; 
         border: 1px solid white;
         }
@@ -363,7 +366,8 @@
             color: white;  
         }
 
-    }
+        
+}
 
  #dropdownMenu1 {
         margin-top: 7%;
