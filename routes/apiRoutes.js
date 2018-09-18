@@ -16,6 +16,23 @@ app.get("/api/sessions", function(req,res){
   });
 });
 
+app.post("/api/staff/authenticateUser", function(req,res){
+  var input = req.body;
+  db.Staff.findOne({
+    where: {
+      staff_name: input.username,
+      password:input.pass,
+      staff_role: "Admin"
+    }
+  }).then(function(result){
+   res.json(result); 
+   console.log(result); 
+    
+     
+  })
+}); 
+
+
 app.get("/api/staff", function(req,res){
   db.Staff.findAll({
   }).then(function(jsonStaff){
