@@ -112,6 +112,5 @@ $(document).ready(function(){
         console.log("this is working");
         $("#myModal2").modal();
        
-        
     });
 });
