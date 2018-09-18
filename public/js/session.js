@@ -1,11 +1,12 @@
 $(document).ready(function(){
-
-    var timeWorked = $("#timeWorked"); 
-    var taskDesc = $("#taskCompletedDesc");
+    
+    $("#modalConfirmation").on("click", sessionSubmission) 
+    
+    var timeWorked = duration;  
+    var taskDesc = $("#taskInfo"); 
     var StaffId = ""; 
     var ProjectId = $("projectValue"); 
 
-    $("#modalConfirmation").on("click", sessionSubmission) 
 
     function sessionSubmission() {
         staffId = sessionStorage.getItem("staffid");

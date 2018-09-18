@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 moment().format();
 // ***********************************************************
 // Creating environment for timer function
@@ -123,13 +125,11 @@ function enablePause() {
    type: "GET",
    url: "/api/projects"
 }).then(function(result){
-  console.log("DO YOU RUN?", result); 
   renderProjectList(result); 
   
 })
 
 function renderProjectList(result) {
-  console.log("YOYOMA, ", result); 
 
   var projectRow = [];
 
@@ -150,3 +150,62 @@ function dropdown(result) {
   listOption.text(result.project_desc);
   return listOption;
 }
+//********************************************************
+//MOVED OVER FROM SESSION.JS 
+//******************************************************** */
+$("#sessionForm").on("submit", sessionSubmission) 
+    
+
+var StaffId = 0;
+var timeWorked = ""; 
+var taskDesc = ""; 
+var ProjectId = 0; 
+
+
+function sessionSubmission(e) {
+  e.preventDefault(); 
+
+    staffId = sessionStorage.getItem("staffid");
+    timeWorked = duration;
+    taskDesc = $("#taskInfo").val();
+    projectId = $("#projectDropdown").val(); 
+    
+    console.log("Staff id:" + staffId); 
+    console.log("time worked: " + timeWorked); 
+    console.log("task description: " + taskDesc);
+    console.log("projectId: " + projectId); 
+     
+
+    if (timeWorked.length === 0 || taskDesc.length === 0) { 
+        alert("error, something happened, please try again")
+    } else { 
+        newSubmission({
+            task_completion_desc: taskDesc,
+            time_worked: timeWorked,
+            ProjectId: projectId,
+            project_id: projectId, 
+            //projectId will have to be associated with dropdown
+            StaffId: staffId,
+            date: '2018-09-12 00:00:00'
+            //staffId will have to be associated with login
+        })
+    } 
+}
+
+function newSubmission(submissionInfo) {
+    $.ajax({
+        type: "POST",
+        url: "/api/sessions",
+        data: submissionInfo,
+      }).done(
+        $("#endSessionModal").modal("toggle"),
+        $("#taskInfo").empty(),
+        console.log("you successfully added a submission")
+      )
+      .fail(console.log("uh oh something went wrong when tryin to post"))
+    };
+
+// sessionSubmission(); 
+})
+
+
