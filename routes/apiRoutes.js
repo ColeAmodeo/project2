@@ -67,9 +67,18 @@ app.get("/api/staff", function(req,res){
 });
 
 app.get("/api/projects", function(req,res){
+
+  var projectArray = []; 
+
   db.Project.findAll({
   }).then(function(jsonProject){
-    res.json(jsonProject)
+    for (var i = 0; i < jsonProject.length; i++) {
+      projectArray.push(jsonProject[i].project_desc); 
+    }
+
+    console.log("Project Array: ", projectArray); 
+    res.json(jsonProject);
+
   });
 });
 
