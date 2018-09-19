@@ -85,11 +85,11 @@ var pass = "";
                 
             }).then(function(result){
                 if (result) {
-                console.log("New Password is reset");
+                alert("New password has been reset");
                 $("#myModalPassword").modal("toggle"); 
 
                 } else {
-                    window.location.href="/"; 
+                    alert("Old password is incorrect")
                 }
             })
         }

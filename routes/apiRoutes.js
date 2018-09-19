@@ -215,13 +215,15 @@ app.post("/api/sessions/", function(req, res){
 
 //update password
 app.post("/api/passwordchange/", function(req, res) {
-    console.log("REQREQ: ", req);
+    var oldPass = req.body.oldPass
     var newPass = req.body.newPass;
     var newId = req.body.id;
 
+    db.Staff
+
       db.Staff.update(
+        { where:{ id: newId, password: oldPass}
         { password: newPass},
-        { where:{ id: newId }
 
         }).then(function(result){
           res.json(result);
