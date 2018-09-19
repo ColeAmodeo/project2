@@ -125,8 +125,8 @@ function enablePause() {
    type: "GET",
    url: "/api/projects"
 }).then(function(result){
-  renderProjectList(result); 
-  
+  renderProjectList(result);
+
 })
 
 function renderProjectList(result) {
@@ -143,7 +143,7 @@ function renderProjectList(result) {
 
 }
 
-   
+
 function dropdown(result) {
   var listOption = $("<option>");
   listOption.attr("value", result.id);
@@ -151,45 +151,45 @@ function dropdown(result) {
   return listOption;
 }
 //********************************************************
-//MOVED OVER FROM SESSION.JS 
+//MOVED OVER FROM SESSION.JS
 //******************************************************** */
-$("#sessionForm").on("submit", sessionSubmission) 
-    
+$("#sessionForm").on("submit", sessionSubmission)
+
 
 var StaffId = 0;
-var timeWorked = ""; 
-var taskDesc = ""; 
-var ProjectId = 0; 
+var timeWorked = "";
+var taskDesc = "";
+var ProjectId = 0;
 
 
 function sessionSubmission(e) {
-  e.preventDefault(); 
+  e.preventDefault();
 
     staffId = sessionStorage.getItem("staffid");
     timeWorked = duration;
     taskDesc = $("#taskInfo").val();
-    projectId = $("#projectDropdown").val(); 
-    
-    console.log("Staff id:" + staffId); 
-    console.log("time worked: " + timeWorked); 
-    console.log("task description: " + taskDesc);
-    console.log("projectId: " + projectId); 
-     
+    projectId = $("#projectDropdown").val();
 
-    if (timeWorked.length === 0 || taskDesc.length === 0) { 
+    console.log("Staff id:" + staffId);
+    console.log("time worked: " + timeWorked);
+    console.log("task description: " + taskDesc);
+    console.log("projectId: " + projectId);
+
+
+    if (timeWorked.length === 0 || taskDesc.length === 0) {
         alert("error, something happened, please try again")
-    } else { 
+    } else {
         newSubmission({
             task_completion_desc: taskDesc,
             time_worked: timeWorked,
             ProjectId: projectId,
-            project_id: projectId, 
+            project_id: projectId,
             //projectId will have to be associated with dropdown
             StaffId: staffId,
             date: '2018-09-12 00:00:00'
             //staffId will have to be associated with login
         })
-    } 
+    }
 }
 
 function newSubmission(submissionInfo) {
@@ -211,10 +211,6 @@ function newSubmission(submissionInfo) {
 // *************************************************************
 $("#logout").on("click", function() {
   window.location.href="/"
-  console.log("logout button works"); 
+  console.log("logout button works");
 })
   })
-
-
-
-

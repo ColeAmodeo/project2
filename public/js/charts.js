@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 var dataArray = [];
 var labelArray = [];
 function latestSessions(dataPull) {
@@ -8,6 +10,7 @@ function latestSessions(dataPull) {
       dataArray.push(sessionData[i].time_worked);
     }
   });
+  $('#graph-container').show();
 //Pull individual project and all employees who worked on it, use a for loop to push their respective data into names and data
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
@@ -57,6 +60,7 @@ $.get("/api/projects", function(projectData) {
   }
   console.log(labelArray)
 });
+$('#graph-container').show();
 //Pull individual project and all employees who worked on it, use a for loop to push their respective data into names and data
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
@@ -96,6 +100,16 @@ var myChart = new Chart(ctx, {
     }
 });
 };
+ //////////////////////
+/// Chart Hiding/Rendering
+///////////////////////
+// $('#controls-container').hide();
+$('#display-buttons').on('click', function() {
+  $('#controls-container').show();
+})
+// $('#graph-container').hide();
+$("#active-projects").on('click', activeProjects)
+$("#recent-sessions").on('click', latestSessions)
+//$("undecided").on('click', undecided)
 
-//activeProjectsGraph();
-latestSessions();
+});
