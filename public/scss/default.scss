@@ -161,10 +161,12 @@
 
 .admin-welcome {
     display: inline-block;
-    position: relative;
-    left: 30%;
-    color: #E5E0AF;
+    position: absolute;
+    top:0;
+    color: white;
+    background-color: hsla(210,95%,25%,1);
     font-family: 'Playfair Display SC', serif
+    padding: 5px;
 }
 
 
@@ -173,7 +175,8 @@
     color: white;
     width: 20%;
     height: 100%;
-    display: fixed;
+    display: inline-block;
+    position:absolute;
     left: 0;
     top: 0;
 
@@ -263,48 +266,6 @@
     color: white;
     text-align: center;
     font-family: 'Playfair Display SC', serif;
-
-}
-#staff-circle-dash {
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    border-radius: 50%;
-    behavior: url(PIE.htc);
-    left: 34%;
-    top: 38%;
-    background-color:hsla(210,95%,25%,1);
-    color: white;
-    text-align: center;
-    padding-top: 7%;
-    font-family: 'Playfair Display SC', serif;
-
-}
-#staff-graph-dash {
-    width: 27%;
-    height: 33%;
-    position: absolute;
-    left: 57%;
-    top: 38%;
-    background-color:hsla(210,95%,25%,1);
-    color: white;
-    text-align: center;
-    padding-top: 7%;
-    font-family: 'Playfair Display SC', serif;
-
-}
-#staff-dashboard-3{
-    width: 50%;
-    height: 10%;
-    position: absolute;
-    left: 34%;
-    top: 75%;
-    background-color:hsla(210,95%,25%,1);
-    color: white;
-    text-align: center;
-    padding-top: 2%;
-    font-family: 'Playfair Display SC', serif;
-
 }
 
 #admin-footer {
@@ -319,8 +280,9 @@
   position: absolute;
   top: 10%;
   left: 25%;
-  width: 400px;
+  width: 75%;
   height: 200px;
+  color: hsla(210,95%,25%,1);
 }
 
 .graph-controls {
@@ -328,11 +290,11 @@
 }
 
 #graph-container {
-  width: 600px;
-  height: 500px;
+  width: 1000px;
+  height: 800px;
   position: absolute;
-  top: 40%;
-  left: 25%;
+  top: 30%;
+  left: 20%;
 }
 /* //////////////////////
 /// Staff Page CSS ///
