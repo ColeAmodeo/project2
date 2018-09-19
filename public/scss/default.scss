@@ -324,7 +324,7 @@
     background-color:hsla(210,95%,25%,1);
     text-align: center;
     position: fixed;
-    top: 10%;
+    top: 2%;
     right: 10%;
     width: 80%;
 
@@ -401,6 +401,29 @@
     }
 
 
+}
+
+#endSessionModal {
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    .modal-body {
+        background-color:hsla(210,95%,25%,1);
+        color: white;
+        font-family: 'Playfair Display SC', serif;
+    }
+
+    .modal-content {
+        margin-top: 50%;
+    }
+
+    .btn-primary {
+        background-color:rgb(155, 102, 4);
+        color: white;
+        border: 1px solid white;
+        margin-left: 40%;
+    }
 }
 
 #staff-footer {
