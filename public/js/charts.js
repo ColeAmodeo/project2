@@ -3,6 +3,14 @@ $(document).ready(function(){
   var labelArray = [];
   var myChart;
 
+  function addData(chart, label, data) {
+      chart.data.labels.push(label);
+      chart.data.datasets.forEach(dataset => {
+          dataset.data.push(data);
+      });
+      chart.update();
+  }
+
 function activeProjects() {
   dataArray = [];
   labelArray = [];
@@ -12,14 +20,17 @@ $.get("/api/projects", function(projectData) {
     dataArray.push(projectData[i].expected_time);
   }
 });
+  addData(myChart1, labelArray, dataArray)
+}
+
 var ctx = document.getElementById("myChart1").getContext('2d');
 var myChart1 = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: labelArray,
+        labels: [],
         datasets: [{
             label: 'Active Projects vs Projected Completion',
-            data: dataArray,
+            data: [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -42,14 +53,15 @@ var myChart1 = new Chart(ctx, {
     options: {
         scales: {
             yAxes: [{
+              display: true,
                 ticks: {
-                    beginAtZero:true,
+                  suggestedMin: 0,
                 }
             }]
         }
     }
 });
-};
+
 
 function latestSessions() {
   dataArray = [];
@@ -61,6 +73,9 @@ function latestSessions() {
       dataArray.push(sessionData[i].time_worked);
     }
   });
+  addData(myChart2, labelArray, dataArray)
+};
+
   var ctx = document.getElementById("myChart2").getContext('2d');
   var myChart2 = new Chart(ctx, {
       type: 'bar',
@@ -90,15 +105,15 @@ function latestSessions() {
       },
       options: {
           scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true,
-                  }
-              }]
+            yAxes: [{
+              display: true,
+                ticks: {
+                  suggestedMin: 0,
+                }
+            }]
           }
       }
   });
-};
  //////////////////////
 /// Chart Hiding/Rendering
 ///////////////////////
@@ -111,12 +126,13 @@ $('#display-buttons').on('click', function() {
   $('#controls-container').show();
 })
 $("#active-projects").on('click', function() {
-  $("#myChart1").show()
   $("#myChart2").hide()
+  $("#myChart1").show()
+  activeProjects();
 } )
 $("#recent-sessions").on('click', function() {
-  $("#myChart2").show()
   $("#myChart1").hide()
+  $("#myChart2").show()
 })
 
 activeProjects();
