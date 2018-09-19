@@ -220,8 +220,9 @@ app.post("/api/passwordchange/", function(req, res) {
     var newId = req.body.id;
 
       db.Staff.update(
-        { where:{ id: newId, password: oldPass}
         { password: newPass},
+        { where:
+          { id: newId, password: oldPass}
 
         }).then(function(result){
           res.json(result);

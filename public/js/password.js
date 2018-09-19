@@ -84,12 +84,14 @@ var pass = "";
                 data: input
                 
             }).then(function(result){
-                if (result) {
-                alert("New password has been reset");
+                console.log(result); 
+                if (result[0] === 1) {
+                // alert("New password has been reset");
                 $("#myModalPassword").modal("toggle"); 
+                alert("You have successfully changed your password")
 
                 } else {
-                    alert("Old password is incorrect")
+                    alert("Old password is incorrect, please try again")
                 }
             })
         }
