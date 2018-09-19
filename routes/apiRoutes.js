@@ -4,16 +4,17 @@ module.exports = function(app) {
 
   //get total_time on all projects. 
 app.get("/api/sessions", function(req,res){ 
-  console.log(req);
-// add all as json elements in api/sessions
+
+  // add all as json elements in api/sessions
   db.Session.findAll({
   }).then(function(jsonSession){
     res.json(jsonSession);
   });
   //sum the total time worked in the session.
-  db.Session.sum("time_worked").then(totalSum => {
+  db.Session.sum("time_worked").then(function(totalSum) {
+
     console.log("\n the sum is " + totalSum);
-  });
+    });
 });
 
 app.post("/api/admin/authenticateUser", function(req,res){
@@ -26,7 +27,6 @@ app.post("/api/admin/authenticateUser", function(req,res){
     }
   }).then(function(result){
    res.json(result); 
-   console.log(result); 
     
      
   })
@@ -41,7 +41,6 @@ app.post("/api/staff/authenticateUser", function (req, res){
     }
   }).then(function(result){
     res.json(result);
-    console.log(result);
   })
 })
 
@@ -76,7 +75,6 @@ app.get("/api/projects", function(req,res){
       projectArray.push(jsonProject[i].project_desc); 
     }
 
-    console.log("Project Array: ", projectArray); 
     res.json(jsonProject);
 
   });
@@ -216,17 +214,21 @@ app.post("/api/sessions/", function(req, res){
 
 
 //update password
-app.put("/api/staff/passwordchange/:id", function(req) {
-    var newPass = req.body.password
-    db.Staff.update(
-      {
-        password: newPass
-      },
-      {
-        where:{ id: req.params.id }
-      })
+app.post("/api/passwordchange/", function(req, res) {
+    var oldPass = req.body.oldPass
+    var newPass = req.body.newPass;
+    var newId = req.body.id;
 
+      db.Staff.update(
+        { password: newPass},
+        { where:
+          { id: newId, password: oldPass}
+
+        }).then(function(result){
+          res.json(result);
+        })
 })
+          
 
 //will need to track total hours worked on a specific project. 
 

@@ -26,7 +26,7 @@
       <hr />
       <ul class="nav flex-column">
           <li class="nav-item">
-            <button class="btn btn-outline-success" href="#">Change Password</button>
+            <button class="btn btn-outline-success" id="changePassword" href="#">Change Password</button>
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-outline-success" id="myBtn2">New Project</button>
@@ -103,6 +103,34 @@
       </div>
     </div>
 
+          <!-- Change Password Modal -->
+          <div class="modal" id="myModalPassword" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <form id="passwordForm">
+                      <h2>Change Your Password</h2>
+                      <div class="form-group">
+                        <label for="projectName">Old Password</label>
+                        <input type="password" class="form-control" id="oldPassword">
+                      </div>
+                      <div class="form-group">
+                        <label for="newPassword1">New Password</label>
+                        <input type="password" class="form-control" id="newPassword1">
+                      </div>
+                      <div class="form-group">
+                          <label for="newPassword2">Re-enter Password</label>
+                          <input type="password" class="form-control" id="newPassword2">
+                        </div>
+        
+                      <button type="submit" id="submitPassword" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
         <!-- <div id="staff-dashboard-1">Staff Data Dash 1</div>
         <div id="staff-dashboard-2">Staff Data Dash 2</div>
         <div id="staff-circle-dash">Staff Data Clock Div</div>
@@ -124,6 +152,7 @@
   <script src="./js/staff.js"></script>
   <script src="./js/project.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/password.js"></script>
 
 </body>
 

@@ -45,7 +45,9 @@ var pass = "";
         }).then(function(user){
 
             if (user) {
+                sessionStorage.setItem("adminId", user.id);
                 location.href="/admin";
+
             } else { 
                 alert("Please enter a proper username and password"); 
             }
@@ -53,4 +55,46 @@ var pass = "";
 
     }; 
     
+    $(document).on("click", "#submitPassword", resetPassword);
+
+    function resetPassword(e) {
+        e.preventDefault();
+
+        var userId = sessionStorage.getItem("adminId")
+        var oldPass = $("#oldPassword").val(); 
+        var newPass1 =$("#newPassword1").val(); 
+        var newPass2 = $("#newPassword2").val(); 
+
+        var input = {
+            oldPass: oldPass, 
+            newPass: newPass1, 
+            id: userId
+        }
+        console.log("INPUT REQ: ", input); 
+        
+        if (newPass1 !== newPass2) {
+            
+            alert("Your new password doesn't match!")
+
+        } else {
+
+            $.ajax({
+                type: "POST",
+                url: "/api/passwordchange/",
+                data: input
+                
+            }).then(function(result){
+                console.log(result); 
+                if (result[0] === 1) {
+                // alert("New password has been reset");
+                $("#myModalPassword").modal("toggle"); 
+                alert("You have successfully changed your password")
+
+                } else {
+                    alert("Old password is incorrect, please try again")
+                }
+            })
+        }
+    }
+        
 }); 
