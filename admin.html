@@ -36,7 +36,7 @@
             <button type="button" class="btn btn-outline-success" id="myBtn1">New Employee</button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-success" href="#">Display Employee Data</button>
+            <button class="btn btn-outline-success" id= "display-buttons" href="#">Display Employee Data</button>
           </li>
           <li class="nav-item">
             <button class="btn btn-outline-success" id="logout" href="#">Logout</button>
@@ -103,39 +103,43 @@
       </div>
     </div>
 
-          <!-- Change Password Modal -->
-          <div class="modal" id="myModalPassword" role="dialog">
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <form id="passwordForm">
-                      <h2>Change Your Password</h2>
-                      <div class="form-group">
-                        <label for="projectName">Old Password</label>
-                        <input type="password" class="form-control" id="oldPassword">
-                      </div>
-                      <div class="form-group">
-                        <label for="newPassword1">New Password</label>
-                        <input type="password" class="form-control" id="newPassword1">
-                      </div>
-                      <div class="form-group">
-                          <label for="newPassword2">Re-enter Password</label>
-                          <input type="password" class="form-control" id="newPassword2">
-                        </div>
-        
-                      <button type="submit" id="submitPassword" class="btn btn-primary">Submit</button>
-                    </form>
-                  </div>
-                </div>
+  <!-- Change Password Modal -->
+    <div class="modal" id="myModalPassword" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+            <form id="passwordForm">
+              <h2>Change Your Password</h2>
+              <div class="form-group">
+                <label for="projectName">Old Password</label>
+                <input type="password" class="form-control" id="oldPassword">
               </div>
-            </div>
+              <div class="form-group">
+                <label for="newPassword1">New Password</label>
+                <input type="password" class="form-control" id="newPassword1">
+              </div>
+              <div class="form-group">
+                  <label for="newPassword2">Re-enter Password</label>
+                  <input type="password" class="form-control" id="newPassword2">
+                </div>
 
-        <!-- <div id="staff-dashboard-1">Staff Data Dash 1</div>
-        <div id="staff-dashboard-2">Staff Data Dash 2</div>
-        <div id="staff-circle-dash">Staff Data Clock Div</div>
-        <div id="staff-graph-dash">Staff Graph Div</div>
-        <div id="staff-dashboard-3">Staff Data Dash 3</div>   -->
+              <button type="submit" id="submitPassword" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id = "controls-container">
+      <button class = "graph-controls" id = "recent-sessions">Recent Sessions</button>
+      <button class = "graph-controls" id = "active-projects">Active Projects</button>
+      <button class = "graph-controls" id = "Undecided">Undecided</button>
+    </div>
+
+    <div id = "graph-container">
+      <canvas id = "myChart"></canvas>
+    </div>
   </div>
   <footer id="admin-footer" class="footer">
     <p>Copyright © Alexander Jivov - Cole Amodeo - Marshall Johnston</p>
