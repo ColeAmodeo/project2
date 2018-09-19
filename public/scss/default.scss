@@ -154,16 +154,19 @@
 ///////////////////////*/
 
 #admin-wrapper {
-    height: 800px;
     width: 100%;
+    height: 960px;
 
 }
 
 .admin-welcome {
-    display: inline;
-    position: fixed;
-    left: 40%;
+    display: inline-block;
+    position: absolute;
+    top:0;
     color: white;
+    background-color: hsla(210,95%,25%,1);
+    font-family: 'Playfair Display SC', serif
+    padding: 5px;
 }
 
 
@@ -172,6 +175,408 @@
     color: white;
     width: 20%;
     height: 100%;
+    display: inline-block;
+    position:absolute;
+    left: 0;
+    top: 0;
+
+    h1 {
+        font-family: 'Playfair Display SC', serif;
+        text-align: center;
+        padding-top: 5%;
+    }
+
+    hr {
+        background-color: white;
+        width: 80%;
+    }
+
+    .btn-outline-success {
+        font-size: 15px;
+        color: white;
+        border: none;
+        width: 100%;
+    }
+
+    .btn-outline-success:hover {
+        background-color:rgb(5, 110, 216);
+        color: white;
+    }
+    .btn-outline-success:active {
+        background-color:rgb(5, 110, 216);
+        color: white;
+}
+}
+
+/* ---------- OnClick Divs for Entering New Information ----------- */
+
+#new-staff-container {
+    width: 50%;
+    display: inline-flex;
+    position: absolute;
+    left: 34%;
+    top: 22%;
+    background-color:hsla(210,95%,25%,1);
+    color: white;
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    padding-left: 15%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#new-project-container {
+    width: 50%;
+    display: inline-flex;
+    position: absolute;
+    left: 34%;
+    top: 22%;
+    background-color:hsla(210,95%,25%,1);
+    color: white;
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    padding-left: 15%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#staff-dashboard-1 {
+    width: 50%;
+    background-color: green;
+    position: absolute;
+    left: 34%;
+    top: 12%;
+    background-color:hsla(210,95%,25%,1);
+    color: white;
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 10%;
+
+
+}
+#staff-dashboard-2{
+    width:50%;
+    height: 10%;
+    position: absolute;
+    left: 34%;
+    top: 25%;
+    background-color:hsla(210,95%,25%,1);
+    color: white;
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+}
+
+#admin-footer {
+    margin-top: -1%;
+    width: 100%;
+    height: 7%;
+}
+/* //////////////////////
+/// Chart Divs CSS ///
+///////////////////////*/
+#controls-container {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  width: 75%;
+  height: 200px;
+  color: hsla(210,95%,25%,1);
+}
+
+.graph-controls {
+
+}
+
+#graph-container {
+  width: 1000px;
+  height: 800px;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+}
+/* //////////////////////
+/// Staff Page CSS ///
+///////////////////////*/
+#staff-wrapper {
+    height: 800px;
+    width: 100%;
+}
+
+
+
+#staff-jumbotron {
+    background-color:hsla(210,95%,25%,1);
+    text-align: center;
+    position: fixed;
+    top: 1%;
+    right: 8%;
+    width: 80%;
+    height: 770px;
+
+
+    p {
+        text-align: center;
+    }
+
+    .time-container {
+        background-color:rgb(5, 110, 216);
+        width: 100%;
+        height: 300px;
+        justify-content: center;
+        border-radius: 2%;
+        font-size: 175px;
+        font-family: 'Orbitron', sans-serif;
+        padding-top: 30px;
+
+
+    }
+
+
+
+ #dropdownMenu1 {
+        margin-top: 7%;
+        background-color:hsla(210,95%,25%,1);
+        color: white;
+    }
+
+    #start-btn {
+        background-color:rgb(155, 102, 4);
+        color: white;
+        border: 1px solid white;
+        font-size: 40px;
+
+    }
+
+    #end-btn {
+        background-color:rgb(155, 102, 4);
+        color: white;
+        border: 1px solid white;
+
+        font-size: 40px;
+
+    }
+
+    #end-btn:hover {
+        background-color:rgb(5, 110, 216);
+        color: white;
+    }
+
+    #start-btn:hover {
+        background-color:rgb(5, 110, 216);
+        color: white;
+    }
+
+
+}
+
+#endSessionModal {
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    .modal-body {
+        background-color:hsla(210,95%,25%,1);
+        color: white;
+        font-family: 'Playfair Display SC', serif;
+    }
+
+    .modal-content {
+        margin-top: 50%;
+    }
+
+    .btn-primary {
+        background-color:rgb(155, 102, 4);
+        color: white;
+        border: 1px solid white;
+        margin-left: 40%;
+    }
+}
+
+#staff-footer {
+
+    margin-top: -1%;
+    width: 100%;
+}
+/* //////////////////////
+/// Landing Page CSS ///
+///////////////////////*/
+
+
+.wrapper {
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: cover;
+    width: 100%;
+}
+
+.container {
+        text-align: center;
+        position: fixed;
+        top: 20%;
+        left: 16.5%;
+        width: 100%;
+}
+
+.jumbotron {
+    font-family: 'Playfair Display SC', serif;
+    background-color:hsla(210,95%,25%,1);
+    color: white;
+
+    .my-4 {
+        background-color: white;
+
+    }
+    .btn-outline-success {
+        font-size: 40px;
+        background-color:rgb(155, 102, 4);
+        color: white;
+        border: 1px solid white;
+    }
+
+    .btn-outline-success:hover {
+        background-color:rgb(197, 129, 12);
+        color: white;
+        border: 1px solid white;
+
+    }
+
+}
+
+.form-container {
+    width: 100%;
+    height: 20%;
+    background-color:hsla(210,95%,25%,1);
+    color: white;
+
+    button {
+        background-color:rgb(155, 102, 4);
+        color: white;
+        border: 1px solid white;
+
+    }
+
+    button:hover {
+        background-color:rgb(197, 129, 12);
+        color: white;
+        border: 1px solid white;
+    }
+
+    .form-group {
+        width: 20%;
+        display: inline-flex;
+        margin: 1%;
+
+    }
+    .form-control {
+        width: 100%;
+        background-color:rgb(3, 97, 192);
+        border: none;
+
+    }
+
+    #exampleInputEmail1 {
+        color: white;
+    }
+    #exampleInputPassword1 {
+        color: white;
+    }
+}
+
+#myModal1 {
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    .modal-body {
+        background-color:hsla(210,95%,25%,1);
+        color: white;
+        font-family: 'Playfair Display SC', serif;
+    }
+
+    .modal-content {
+        margin-top: 50%;
+    }
+
+    .btn-primary {
+        background-color:rgb(155, 102, 4);
+        color: white;
+        border: 1px solid white;
+        margin-left: 40%;
+    }
+}
+
+#myModal2 {
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    .modal-body {
+        background-color:hsla(210,95%,25%,1);
+        color: white;
+        font-family: 'Playfair Display SC', serif;
+    }
+
+    .modal-content {
+        margin-top: 50%;
+    }
+
+    .btn-primary {
+        background-color:rgb(155, 102, 4);
+        color: white;
+        border: 1px solid white;
+        margin-left: 40%;
+    }
+}
+
+
+.footer {
+    width: 100%;
+    background-color:hsla(210,95%,25%,1);
+    color: white;
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    position: fixed;
+    bottom: 0;
+    height: 7%;
+    font-size: 12px;
+
+    p {
+        margin-top: 1%;
+
+    }
+
+}
+
+/* //////////////////////
+/// Admin Page CSS ///
+///////////////////////*/
+
+#admin-wrapper {
+    width: 100%;
+    height: 960px;
+
+}
+
+.admin-welcome {
+    display: inline-block;
+    position: relative;
+    left: 30%;
+    color: #E5E0AF;
+    font-family: 'Playfair Display SC', serif
+}
+
+
+.nav-container {
+    background-color:hsla(210,95%,25%,1);
+    color: white;
+    width: 20%;
+    height: 100%;
+    display: fixed;
+    left: 0;
+    top: 0;
 
     h1 {
         font-family: 'Playfair Display SC', serif;
@@ -264,7 +669,6 @@
 #staff-circle-dash {
     width: 300px;
     height: 300px;
-
     position: absolute;
     border-radius: 50%;
     behavior: url(PIE.htc);
@@ -313,7 +717,11 @@
 /// Chart Divs CSS ///
 ///////////////////////*/
 #controls-container {
-
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  width: 400px;
+  height: 200px;
 }
 
 .graph-controls {
@@ -321,7 +729,11 @@
 }
 
 #graph-container {
-  
+  width: 600px;
+  height: 500px;
+  position: absolute;
+  top: 40%;
+  left: 25%;
 }
 /* //////////////////////
 /// Staff Page CSS ///
