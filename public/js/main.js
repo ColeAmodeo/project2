@@ -205,7 +205,16 @@ function newSubmission(submissionInfo) {
       .fail(console.log("uh oh something went wrong when tryin to post"))
     };
 
-// sessionSubmission(); 
+
+// *************************************************************
+                    // LOGOUT FUNCTION
+// *************************************************************
+$("#logout").on("click", function() {
+  window.location.href="/"
+  console.log("logout button works"); 
 })
+  })
+
+
 
 
