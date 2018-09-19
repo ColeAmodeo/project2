@@ -21,3 +21,10 @@ $(document).ready(function(){
         $("#endSessionModal").modal();
     });
 });
+
+$(document).ready(function(){
+    $("#changePassword").click(function(){
+        console.log("session Works");
+        $("#myModalPassword").modal(); 
+    });
+});
