@@ -2,7 +2,6 @@ $(document).ready(function(){
     $("#myBtn1").click(function(){
         console.log("this is working");
         $("#myModal1").modal();
-       
         
     });
 });
@@ -28,3 +27,11 @@ $(document).ready(function(){
         $("#myModalPassword").modal(); 
     });
 });
+
+$(document).ready(function(){ 
+    $("#projectSubmit").click(function(){
+        alert("Project Successfully Added"); 
+        $("#myModal2").modal("toggle") 
+
+    })
+})
